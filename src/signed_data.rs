@@ -146,16 +146,16 @@ pub fn verify_signature(signature_alg: &SignatureAlgorithm,
 }
 
 
-struct SubjectPublicKeyInfo<'a> {
-    algorithm_id_value: untrusted::Input<'a>,
-    key_value: untrusted::Input<'a>,
+pub(crate) struct SubjectPublicKeyInfo<'a> {
+    pub(crate) algorithm_id_value: untrusted::Input<'a>,
+    pub(crate) key_value: untrusted::Input<'a>,
 }
 
 // Parse the public key into an algorithm OID, an optional curve OID, and the
 // key value. The caller needs to check whether these match the
 // `PublicKeyAlgorithm` for the `SignatureAlgorithm` that is matched when
 // parsing the signature.
-fn parse_spki_value(input: untrusted::Input)
+pub(crate) fn parse_spki_value(input: untrusted::Input)
                     -> Result<SubjectPublicKeyInfo, Error> {
     input.read_all(Error::BadDER, |input| {
         let algorithm_id_value =
@@ -267,6 +267,478 @@ pub static ED25519: SignatureAlgorithm =
     verification_alg: &signature::ED25519,
 };
 
+
+
+const SPHINCS_SHA_256_128S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x00\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHA_256_128S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHA_256_128S_SIMPLE_ID,
+    signature_alg_id: SPHINCS_SHA_256_128S_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_SHA_256_128S_SIMPLE,
+};
+
+
+
+const SPHINCS_SHA_256_128S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x01\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHA_256_128S_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHA_256_128S_ROBUST_ID,
+    signature_alg_id: SPHINCS_SHA_256_128S_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_SHA_256_128S_ROBUST,
+};
+
+
+
+const SPHINCS_SHA_256_128F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x02\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHA_256_128F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHA_256_128F_SIMPLE_ID,
+    signature_alg_id: SPHINCS_SHA_256_128F_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_SHA_256_128F_SIMPLE,
+};
+
+
+
+const SPHINCS_SHA_256_128F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x03\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHA_256_128F_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHA_256_128F_ROBUST_ID,
+    signature_alg_id: SPHINCS_SHA_256_128F_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_SHA_256_128F_ROBUST,
+};
+
+
+
+const SPHINCS_SHA_256_192S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x04\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHA_256_192S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHA_256_192S_SIMPLE_ID,
+    signature_alg_id: SPHINCS_SHA_256_192S_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_SHA_256_192S_SIMPLE,
+};
+
+
+
+const SPHINCS_SHA_256_192S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x05\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHA_256_192S_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHA_256_192S_ROBUST_ID,
+    signature_alg_id: SPHINCS_SHA_256_192S_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_SHA_256_192S_ROBUST,
+};
+
+
+
+const SPHINCS_SHA_256_192F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x06\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHA_256_192F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHA_256_192F_SIMPLE_ID,
+    signature_alg_id: SPHINCS_SHA_256_192F_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_SHA_256_192F_SIMPLE,
+};
+
+
+
+const SPHINCS_SHA_256_192F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x07\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHA_256_192F_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHA_256_192F_ROBUST_ID,
+    signature_alg_id: SPHINCS_SHA_256_192F_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_SHA_256_192F_ROBUST,
+};
+
+
+
+const SPHINCS_SHA_256_256S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x08\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHA_256_256S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHA_256_256S_SIMPLE_ID,
+    signature_alg_id: SPHINCS_SHA_256_256S_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_SHA_256_256S_SIMPLE,
+};
+
+
+
+const SPHINCS_SHA_256_256S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x09\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHA_256_256S_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHA_256_256S_ROBUST_ID,
+    signature_alg_id: SPHINCS_SHA_256_256S_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_SHA_256_256S_ROBUST,
+};
+
+
+
+const SPHINCS_SHA_256_256F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0A\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHA_256_256F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHA_256_256F_SIMPLE_ID,
+    signature_alg_id: SPHINCS_SHA_256_256F_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_SHA_256_256F_SIMPLE,
+};
+
+
+
+const SPHINCS_SHA_256_256F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0B\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHA_256_256F_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHA_256_256F_ROBUST_ID,
+    signature_alg_id: SPHINCS_SHA_256_256F_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_SHA_256_256F_ROBUST,
+};
+
+
+
+const SPHINCS_SHAKE_256_128S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0C\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHAKE_256_128S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHAKE_256_128S_SIMPLE_ID,
+    signature_alg_id: SPHINCS_SHAKE_256_128S_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_SHAKE_256_128S_SIMPLE,
+};
+
+
+
+const SPHINCS_SHAKE_256_128S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0D\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHAKE_256_128S_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHAKE_256_128S_ROBUST_ID,
+    signature_alg_id: SPHINCS_SHAKE_256_128S_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_SHAKE_256_128S_ROBUST,
+};
+
+
+
+const SPHINCS_SHAKE_256_128F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0E\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHAKE_256_128F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHAKE_256_128F_SIMPLE_ID,
+    signature_alg_id: SPHINCS_SHAKE_256_128F_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_SHAKE_256_128F_SIMPLE,
+};
+
+
+
+const SPHINCS_SHAKE_256_128F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0F\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHAKE_256_128F_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHAKE_256_128F_ROBUST_ID,
+    signature_alg_id: SPHINCS_SHAKE_256_128F_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_SHAKE_256_128F_ROBUST,
+};
+
+
+
+const SPHINCS_SHAKE_256_192S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x10\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHAKE_256_192S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHAKE_256_192S_SIMPLE_ID,
+    signature_alg_id: SPHINCS_SHAKE_256_192S_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_SHAKE_256_192S_SIMPLE,
+};
+
+
+
+const SPHINCS_SHAKE_256_192S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x11\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHAKE_256_192S_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHAKE_256_192S_ROBUST_ID,
+    signature_alg_id: SPHINCS_SHAKE_256_192S_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_SHAKE_256_192S_ROBUST,
+};
+
+
+
+const SPHINCS_SHAKE_256_192F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x12\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHAKE_256_192F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHAKE_256_192F_SIMPLE_ID,
+    signature_alg_id: SPHINCS_SHAKE_256_192F_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_SHAKE_256_192F_SIMPLE,
+};
+
+
+
+const SPHINCS_SHAKE_256_192F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x13\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHAKE_256_192F_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHAKE_256_192F_ROBUST_ID,
+    signature_alg_id: SPHINCS_SHAKE_256_192F_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_SHAKE_256_192F_ROBUST,
+};
+
+
+
+const SPHINCS_SHAKE_256_256S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x14\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHAKE_256_256S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHAKE_256_256S_SIMPLE_ID,
+    signature_alg_id: SPHINCS_SHAKE_256_256S_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_SHAKE_256_256S_SIMPLE,
+};
+
+
+
+const SPHINCS_SHAKE_256_256S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x15\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHAKE_256_256S_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHAKE_256_256S_ROBUST_ID,
+    signature_alg_id: SPHINCS_SHAKE_256_256S_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_SHAKE_256_256S_ROBUST,
+};
+
+
+
+const SPHINCS_SHAKE_256_256F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x16\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHAKE_256_256F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHAKE_256_256F_SIMPLE_ID,
+    signature_alg_id: SPHINCS_SHAKE_256_256F_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_SHAKE_256_256F_SIMPLE,
+};
+
+
+
+const SPHINCS_SHAKE_256_256F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x17\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_SHAKE_256_256F_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_SHAKE_256_256F_ROBUST_ID,
+    signature_alg_id: SPHINCS_SHAKE_256_256F_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_SHAKE_256_256F_ROBUST,
+};
+
+
+
+const SPHINCS_HARAKA_128S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x18\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_HARAKA_128S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_HARAKA_128S_SIMPLE_ID,
+    signature_alg_id: SPHINCS_HARAKA_128S_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_HARAKA_128S_SIMPLE,
+};
+
+
+
+const SPHINCS_HARAKA_128S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x19\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_HARAKA_128S_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_HARAKA_128S_ROBUST_ID,
+    signature_alg_id: SPHINCS_HARAKA_128S_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_HARAKA_128S_ROBUST,
+};
+
+
+
+const SPHINCS_HARAKA_128F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1A\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_HARAKA_128F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_HARAKA_128F_SIMPLE_ID,
+    signature_alg_id: SPHINCS_HARAKA_128F_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_HARAKA_128F_SIMPLE,
+};
+
+
+
+const SPHINCS_HARAKA_128F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1B\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_HARAKA_128F_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_HARAKA_128F_ROBUST_ID,
+    signature_alg_id: SPHINCS_HARAKA_128F_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_HARAKA_128F_ROBUST,
+};
+
+
+
+const SPHINCS_HARAKA_192S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1C\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_HARAKA_192S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_HARAKA_192S_SIMPLE_ID,
+    signature_alg_id: SPHINCS_HARAKA_192S_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_HARAKA_192S_SIMPLE,
+};
+
+
+
+const SPHINCS_HARAKA_192S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1D\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_HARAKA_192S_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_HARAKA_192S_ROBUST_ID,
+    signature_alg_id: SPHINCS_HARAKA_192S_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_HARAKA_192S_ROBUST,
+};
+
+
+
+const SPHINCS_HARAKA_192F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1E\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_HARAKA_192F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_HARAKA_192F_SIMPLE_ID,
+    signature_alg_id: SPHINCS_HARAKA_192F_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_HARAKA_192F_SIMPLE,
+};
+
+
+
+const SPHINCS_HARAKA_192F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1F\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_HARAKA_192F_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_HARAKA_192F_ROBUST_ID,
+    signature_alg_id: SPHINCS_HARAKA_192F_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_HARAKA_192F_ROBUST,
+};
+
+
+
+const SPHINCS_HARAKA_256S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x20\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_HARAKA_256S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_HARAKA_256S_SIMPLE_ID,
+    signature_alg_id: SPHINCS_HARAKA_256S_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_HARAKA_256S_SIMPLE,
+};
+
+
+
+const SPHINCS_HARAKA_256S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x21\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_HARAKA_256S_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_HARAKA_256S_ROBUST_ID,
+    signature_alg_id: SPHINCS_HARAKA_256S_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_HARAKA_256S_ROBUST,
+};
+
+
+
+const SPHINCS_HARAKA_256F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x22\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_HARAKA_256F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_HARAKA_256F_SIMPLE_ID,
+    signature_alg_id: SPHINCS_HARAKA_256F_SIMPLE_ID,
+    verification_alg: &signature::SPHINCS_HARAKA_256F_SIMPLE,
+};
+
+
+
+const SPHINCS_HARAKA_256F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x23\x05\x00"
+};
+
+/// SPHINCS signature
+pub static SPHINCS_HARAKA_256F_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: SPHINCS_HARAKA_256F_ROBUST_ID,
+    signature_alg_id: SPHINCS_HARAKA_256F_ROBUST_ID,
+    verification_alg: &signature::SPHINCS_HARAKA_256F_ROBUST,
+};
+
+
+
+
+
 struct AlgorithmIdentifier {
     asn1_id_value: &'static [u8],
 }
@@ -326,6 +798,8 @@ const RSA_PSS_SHA512: AlgorithmIdentifier = AlgorithmIdentifier {
 const ED_25519: AlgorithmIdentifier = AlgorithmIdentifier {
     asn1_id_value: include_bytes!("data/alg-ed25519.der"),
 };
+
+
 
 #[cfg(test)]
 mod tests {
@@ -631,6 +1105,9 @@ mod tests {
         &signed_data::RSA_PSS_2048_8192_SHA384_LEGACY_KEY,
         &signed_data::RSA_PSS_2048_8192_SHA512_LEGACY_KEY,
         &signed_data::ED25519,
+
+        // PQ algorithms
+        &signed_data::SPHINCS_SHAKE_256_128F_SIMPLE,
 
         // Algorithms deprecated because they are annoying (P-521) or because
         // they are nonsensical combinations.

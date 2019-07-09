@@ -95,6 +95,43 @@ pub use signed_data::{
     RSA_PSS_2048_8192_SHA384_LEGACY_KEY,
     RSA_PSS_2048_8192_SHA512_LEGACY_KEY,
     ED25519,
+
+    SPHINCS_SHA_256_128S_SIMPLE,
+    SPHINCS_SHA_256_128S_ROBUST,
+    SPHINCS_SHA_256_128F_SIMPLE,
+    SPHINCS_SHA_256_128F_ROBUST,
+    SPHINCS_SHA_256_192S_SIMPLE,
+    SPHINCS_SHA_256_192S_ROBUST,
+    SPHINCS_SHA_256_192F_SIMPLE,
+    SPHINCS_SHA_256_192F_ROBUST,
+    SPHINCS_SHA_256_256S_SIMPLE,
+    SPHINCS_SHA_256_256S_ROBUST,
+    SPHINCS_SHA_256_256F_SIMPLE,
+    SPHINCS_SHA_256_256F_ROBUST,
+    SPHINCS_SHAKE_256_128S_SIMPLE,
+    SPHINCS_SHAKE_256_128S_ROBUST,
+    SPHINCS_SHAKE_256_128F_SIMPLE,
+    SPHINCS_SHAKE_256_128F_ROBUST,
+    SPHINCS_SHAKE_256_192S_SIMPLE,
+    SPHINCS_SHAKE_256_192S_ROBUST,
+    SPHINCS_SHAKE_256_192F_SIMPLE,
+    SPHINCS_SHAKE_256_192F_ROBUST,
+    SPHINCS_SHAKE_256_256S_SIMPLE,
+    SPHINCS_SHAKE_256_256S_ROBUST,
+    SPHINCS_SHAKE_256_256F_SIMPLE,
+    SPHINCS_SHAKE_256_256F_ROBUST,
+    SPHINCS_HARAKA_128S_SIMPLE,
+    SPHINCS_HARAKA_128S_ROBUST,
+    SPHINCS_HARAKA_128F_SIMPLE,
+    SPHINCS_HARAKA_128F_ROBUST,
+    SPHINCS_HARAKA_192S_SIMPLE,
+    SPHINCS_HARAKA_192S_ROBUST,
+    SPHINCS_HARAKA_192F_SIMPLE,
+    SPHINCS_HARAKA_192F_ROBUST,
+    SPHINCS_HARAKA_256S_SIMPLE,
+    SPHINCS_HARAKA_256S_ROBUST,
+    SPHINCS_HARAKA_256F_SIMPLE,
+    SPHINCS_HARAKA_256F_ROBUST,
 };
 
 pub use time::Time;
@@ -245,6 +282,16 @@ impl <'a> EndEntityCert<'a> {
                             signature: untrusted::Input) -> Result<(), Error> {
         signed_data::verify_signature(signature_alg, self.inner.spki, msg,
                                       signature)
+    }
+
+    /// Get the public key data from the certificate
+    ///
+    /// Returns algorithm id and key value
+    pub fn public_key(&'a self) -> (untrusted::Input<'a>, untrusted::Input<'a>) {
+        let spki = signed_data::parse_spki_value(self.inner.spki).unwrap();
+        let algorithm = spki.algorithm_id_value;
+        let key_value = spki.key_value;
+        (algorithm, key_value)
     }
 }
 
