@@ -68,7 +68,6 @@ mod signed_data;
 mod calendar;
 mod time;
 mod error;
-mod kem;
 
 #[cfg(feature = "trust_anchor_util")]
 pub mod trust_anchor_util;
@@ -135,12 +134,10 @@ pub use signed_data::{
     SPHINCS_HARAKA_256F_ROBUST,
 };
 
-pub use kem::{
-    KemAlgorithm,
-    *,
-};
-
 pub use time::Time;
+
+mod kem;
+pub use kem::*;
 
 /// An end-entity certificate.
 ///
@@ -293,13 +290,12 @@ impl <'a> EndEntityCert<'a> {
     /// Get the public key data from the certificate
     ///
     /// Returns algorithm id and key value
-    pub fn public_key(&'a self) -> Result<(&KemAlgorithm, untrusted::Input<'a>), Error> {
-        let spki = signed_data::parse_spki_value(self.inner.spki)?;
-        let algorithm = key_id_to_kem(spki.algorithm_id_value)?;
+    pub fn public_key(&'a self) -> Result<(&'static KemAlgorithm, untrusted::Input<'a>), Error>{
+        let spki = signed_data::parse_spki_value(self.inner.spki).unwrap();
+        let algorithm = spki.algorithm_id_value;
         let key_value = spki.key_value;
-        Ok((algorithm, key_value))
+        (algorithm, key_value)
     }
-
 }
 
 /// A trust anchor (a.k.a. root CA).
