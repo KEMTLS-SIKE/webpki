@@ -296,6 +296,14 @@ impl <'a> EndEntityCert<'a> {
         let key_value = spki.key_value;
         Ok((algorithm, key_value))
     }
+
+    /// Decapsulate
+    pub fn decapsulate(&'a self, private_key: untrusted::Input, ciphertext: untrusted::Input) -> Result<std::vec::Vec<u8>, Error> {
+        let spki = signed_data::parse_spki_value(self.inner.spki)?;
+        let algorithm = key_id_to_kem(spki.algorithm_id_value)?;
+        let private_key = ring::agreement::PrivateKey::from(algorithm.kem, private_key);
+        decapsulate(algorithm, &private_key, ciphertext)
+    }
 }
 
 /// A trust anchor (a.k.a. root CA).
