@@ -736,15 +736,12 @@ pub static SPHINCS_HARAKA_256F_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
 };
 
 
-
-
-
-struct AlgorithmIdentifier {
-    asn1_id_value: &'static [u8],
+pub(crate) struct AlgorithmIdentifier {
+    pub(crate) asn1_id_value: &'static [u8],
 }
 
 impl AlgorithmIdentifier {
-    fn matches_algorithm_id_value(&self, encoded: untrusted::Input) -> bool {
+    pub(crate) fn matches_algorithm_id_value(&self, encoded: untrusted::Input) -> bool {
         encoded == self.asn1_id_value
     }
 }

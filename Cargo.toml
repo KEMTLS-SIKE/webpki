@@ -40,6 +40,7 @@ include = [
     "src/trust_anchor_util.rs",
     "src/verify_cert.rs",
     "src/webpki.rs",
+    "src/kem.rs",
 
     "src/data/**/*",
 
