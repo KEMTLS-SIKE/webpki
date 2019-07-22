@@ -291,10 +291,10 @@ impl <'a> EndEntityCert<'a> {
     ///
     /// Returns algorithm id and key value
     pub fn public_key(&'a self) -> Result<(&'static KemAlgorithm, untrusted::Input<'a>), Error>{
-        let spki = signed_data::parse_spki_value(self.inner.spki).unwrap();
-        let algorithm = spki.algorithm_id_value;
+        let spki = signed_data::parse_spki_value(self.inner.spki)?;
+        let algorithm = key_id_to_kem(spki.algorithm_id_value)?;
         let key_value = spki.key_value;
-        (algorithm, key_value)
+        Ok((algorithm, key_value))
     }
 }
 
