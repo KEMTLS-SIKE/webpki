@@ -47,8 +47,8 @@ pub fn build_chain<'a>(required_eku_if_present: KeyPurposeId,
 
     match loop_while_non_fatal_error(trust_anchors,
                                      |trust_anchor: &TrustAnchor<'a>| {
-        let trust_anchor_subject = untrusted::Input::from(trust_anchor.subject);
-        if cert.issuer != trust_anchor_subject {
+        //let trust_anchor_subject = untrusted::Input::from(trust_anchor.subject);
+        if cert.issuer.as_slice_less_safe() != trust_anchor.subject {
             return Err(Error::UnknownIssuer);
         }
 
