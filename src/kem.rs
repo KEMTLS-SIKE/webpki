@@ -20,6 +20,12 @@ pub fn decapsulate(alg: &KemAlgorithm,
     (alg.kem.decapsulate)(private_key, ciphertext).map_err(|_| error::Error::KEMFailure)
 }
 
+/// Encapsulate
+pub fn encapsulate(alg: &KemAlgorithm, public_key: untrusted::Input) -> Result<(ring::agreement::Ciphertext, ring::agreement::SharedSecret), error::Error> {
+    let rng = ring::rand::SystemRandom::new();
+    (alg.kem.encapsulate)(public_key, &rng).map_err(|_| error::Error::KEMFailure)
+}
+
 
 /// check if the kem is correct
 pub fn check_key_id(kem: &KemAlgorithm, encoded: untrusted::Input) -> bool {
