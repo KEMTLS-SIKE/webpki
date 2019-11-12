@@ -132,6 +132,12 @@ pub use signed_data::{
     SPHINCS_HARAKA_256S_ROBUST,
     SPHINCS_HARAKA_256F_SIMPLE,
     SPHINCS_HARAKA_256F_ROBUST,
+    MQDSS_48,
+    MQDSS_64,
+    QTESLA_P_III,
+    QTESLA_P_I,
+    FALCON_512,
+    FALCON_1024,
 };
 
 pub use time::Time;
@@ -316,6 +322,16 @@ impl <'a> EndEntityCert<'a> {
         let spki = signed_data::parse_spki_value(self.inner.spki)?;
         let algorithm = key_id_to_kem(spki.algorithm_id_value)?;
         encapsulate(algorithm, spki.key_value)
+    }
+
+    /// Convert DER to the private key that belongs to this certificate.
+    pub fn get_private_key(&self, encoded: &'a [u8]) -> Option<&'a [u8]> {
+        let spki = signed_data::parse_spki_value(self.inner.spki);
+        if let Ok(spki) = spki {
+            Some(&encoded[0..spki.algorithm_id_value.len()])
+        } else {
+            None
+        }
     }
 }
 

@@ -736,7 +736,76 @@ pub static SPHINCS_HARAKA_256F_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
 };
 
 
+const MQDSS_48_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x24\x05\x00"
+};
 
+/// MQDSS_48 signature
+pub static MQDSS_48: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: MQDSS_48_ID,
+    signature_alg_id: MQDSS_48_ID,
+    verification_alg: &signature::MQDSS_48,
+};
+
+
+const MQDSS_64_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x25\x05\x00"
+};
+
+/// MQDSS_64 signature
+pub static MQDSS_64: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: MQDSS_64_ID,
+    signature_alg_id: MQDSS_64_ID,
+    verification_alg: &signature::MQDSS_64,
+};
+
+
+const QTESLA_P_III_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x26\x05\x00"
+};
+
+/// QTESLA_P_III signature
+pub static QTESLA_P_III: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: QTESLA_P_III_ID,
+    signature_alg_id: QTESLA_P_III_ID,
+    verification_alg: &signature::QTESLA_P_III,
+};
+
+
+const QTESLA_P_I_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x27\x05\x00"
+};
+
+/// QTESLA_P_I signature
+pub static QTESLA_P_I: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: QTESLA_P_I_ID,
+    signature_alg_id: QTESLA_P_I_ID,
+    verification_alg: &signature::QTESLA_P_I,
+};
+
+
+const FALCON_512_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x28\x05\x00"
+};
+
+/// FALCON_512 signature
+pub static FALCON_512: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: FALCON_512_ID,
+    signature_alg_id: FALCON_512_ID,
+    verification_alg: &signature::FALCON_512,
+};
+
+
+const FALCON_1024_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x29\x05\x00"
+};
+
+/// FALCON_1024 signature
+pub static FALCON_1024: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: FALCON_1024_ID,
+    signature_alg_id: FALCON_1024_ID,
+    verification_alg: &signature::FALCON_1024,
+};
 
 
 pub(crate) struct AlgorithmIdentifier {
