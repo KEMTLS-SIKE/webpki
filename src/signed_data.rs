@@ -808,6 +808,7 @@ pub static FALCON_1024: SignatureAlgorithm = SignatureAlgorithm {
 };
 
 
+#[derive(Debug)]
 pub(crate) struct AlgorithmIdentifier {
     pub(crate) asn1_id_value: &'static [u8],
 }

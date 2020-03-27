@@ -8,6 +8,7 @@ use untrusted::Input;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let data = fs::read("kyber512.der")?;
+    let pk = fs::read("kyber512.pub.bin")?;
     let sk = fs::read("kyber512.key.bin")?;
     let input = Input::from(&data);
     let cert = EndEntityCert::from(input)?;
@@ -17,19 +18,18 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         println!("Valid for localhost");
     }
 
-    let (id, pk) = cert.public_key()?;
-    println!("Key id: {:?}", id.kem);
+    let (id, pk_cert) = cert.public_key()?;
+    assert_eq!(pk.len(), pk_cert.len(), "Public key len doesn't match actual");
+    assert_eq!(pk.as_slice(), pk_cert.as_slice_less_safe(), "Public key doesn't match actual");
+    //println!("Key id: {}", id);
 
-    let rng = ring::rand::SystemRandom::new();
-    let epk = ring::agreement::EphemeralPrivateKey::generate(id.kem, &rng)?;
-    let (ct, ss) = epk.encapsulate(pk, (), |x| Ok(x.to_vec())).unwrap();
-    println!("SS1: {:?}", ss);
+    let (ct, ss) = cert.encapsulate().unwrap();
     let ss2 = cert.decapsulate(Input::from(&sk), Input::from(ct.as_ref()))?;
 
     assert_eq!(ss, ss2);
+    println!("SS: {:?}", ss);
 
 
-    //println!("Public key: {:?}", pk.as_slice_less_safe());
 
 
     Ok(())

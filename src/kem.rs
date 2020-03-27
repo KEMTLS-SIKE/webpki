@@ -1,4 +1,5 @@
 use std::vec::Vec;
+use std::fmt;
 use crate::error;
 use signed_data::AlgorithmIdentifier;
 
@@ -8,6 +9,12 @@ pub struct KemAlgorithm {
     pub(crate) public_key_alg_id: AlgorithmIdentifier,
     /// kem alg
     pub kem: &'static ring::agreement::Algorithm,
+}
+
+impl fmt::Display for KemAlgorithm {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{:x?}", self.public_key_alg_id)
+    }
 }
 
 /// Decapsulate
