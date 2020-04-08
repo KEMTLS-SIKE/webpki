@@ -88,6 +88,9 @@ pub enum Error {
 
     /// KEM fail
     KEMFailure,
+
+    /// Thom's marker
+    ThomMarker,
 }
 
 impl fmt::Display for Error {

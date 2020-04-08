@@ -332,9 +332,27 @@ impl <'a> EndEntityCert<'a> {
     }
 
     /// Decapsulate
-    pub fn decapsulate(&self, private_key: untrusted::Input, ciphertext: untrusted::Input) -> Result<std::vec::Vec<u8>, Error> {
+    pub fn decapsulate(&self, private_key_der: untrusted::Input, ciphertext: untrusted::Input) -> Result<std::vec::Vec<u8>, Error> {
         let spki = signed_data::parse_spki_value(self.inner.spki)?;
         let algorithm = key_id_to_kem(spki.algorithm_id_value)?;
+        let private_key = private_key_der.read_all(Error::ThomMarker, |private_key_der| {
+            der::nested_mut(private_key_der, der::Tag::Sequence, Error::BadDER, |data| {
+                let _ = der::small_nonnegative_integer(data)?;
+                let m1 = data.mark();
+                der::nested_mut(data, der::Tag::Sequence, Error::BadDER, |keyinfo| {
+                    let _ = der::expect_tag_and_get_value(keyinfo, der::Tag::OID)?;
+                    // skipp NULL
+                    keyinfo.skip(2).map_err(|_| Error::BadDER)?;
+                    Ok(())
+                })?;
+                let m2 = data.mark();
+                let privkey_algorithm = untrusted::Input::from(&data.get_input_between_marks(m1, m2).unwrap().as_slice_less_safe()[2..]);
+                assert_eq!(key_id_to_kem(privkey_algorithm)?, algorithm, "Public key doesn't match private key in OID");
+
+                der::expect_tag_and_get_value(data, der::Tag::OctetString)
+            })
+        })?;
+
         let private_key = ring::agreement::PrivateKey::from(algorithm.kem, private_key);
         decapsulate(algorithm, &private_key, ciphertext)
     }

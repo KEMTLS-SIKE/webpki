@@ -1025,7 +1025,7 @@ pub static Q_TESLA_PIII: SignatureAlgorithm = SignatureAlgorithm {
 
 
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub(crate) struct AlgorithmIdentifier {
     pub(crate) asn1_id_value: &'static [u8],
 }
