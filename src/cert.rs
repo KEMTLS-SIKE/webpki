@@ -126,6 +126,7 @@ fn version3(input: &mut untrusted::Reader) -> Result<(), Error> {
                 Error::BadDER, |input| {
         let version = der::small_nonnegative_integer(input)?;
         if version != 2 { // v3
+            std::println!("Invalid version of certificate!");
             return Err(Error::UnsupportedCertVersion);
         }
         Ok(())

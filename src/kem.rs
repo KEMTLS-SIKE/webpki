@@ -108,13 +108,12 @@ pub fn key_id_to_kem(algorithm_id: untrusted::Input) -> Result<&'static KemAlgor
     get_kem!(BIKEL1FO, algorithm_id);
     get_kem!(SIKEP434COMPRESSED, algorithm_id);
 
-    std::println!("Didn't find any KEM key");
     Err(error::Error::KEMFailure)
 }
 
 
 const X25519_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x09\x2a\x86\x48\x86\xf7\x0d\x01\x01\x01\x05\x00"
+    asn1_id_value: b"\x06\x03\x2b\x65\x6e",
 };
 
 /// X25519 KEM
