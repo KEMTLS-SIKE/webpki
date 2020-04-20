@@ -55,6 +55,7 @@ macro_rules! get_kem {
 
 /// convert a key id to a kem
 pub fn key_id_to_kem(algorithm_id: untrusted::Input) -> Result<&'static KemAlgorithm, error::Error> {
+    get_kem!(X25519, algorithm_id);
     get_kem!(CSIDH, algorithm_id);
     get_kem!(KYBER512, algorithm_id);
     get_kem!(KYBER768, algorithm_id);
@@ -112,6 +113,15 @@ pub fn key_id_to_kem(algorithm_id: untrusted::Input) -> Result<&'static KemAlgor
 }
 
 
+const X25519_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x09\x2a\x86\x48\x86\xf7\x0d\x01\x01\x01\x05\x00"
+};
+
+/// X25519 KEM
+pub static X25519: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: X25519_ID,
+    kem: &ring::agreement::X25519,
+};
 
 const CSIDH_ID: AlgorithmIdentifier = AlgorithmIdentifier {
      asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x3F\x05\x00"
