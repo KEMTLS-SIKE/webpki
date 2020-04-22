@@ -345,7 +345,8 @@ impl <'a> EndEntityCert<'a> {
                 })?;
                 let m2 = data.mark();
                 let privkey_algorithm = untrusted::Input::from(&data.get_input_between_marks(m1, m2).unwrap().as_slice_less_safe()[2..]);
-                assert_eq!(key_id_to_kem(privkey_algorithm)?, algorithm, "Public key doesn't match private key in OID");
+                let privkey_algorithm = key_id_to_kem(privkey_algorithm)?;
+                assert_eq!(privkey_algorithm, algorithm, "Public key doesn't match private key in OID");
 
                 der::nested_mut(data, der::Tag::OctetString, Error::BadDER, |data| {
                     der::expect_tag_and_get_value(data, der::Tag::OctetString)

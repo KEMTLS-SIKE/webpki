@@ -269,7 +269,7 @@ pub static ED25519: SignatureAlgorithm =
 
 
 const DILITHIUM2_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x00\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x00"
 };
 
 /// DILITHIUM2 signature
@@ -281,7 +281,7 @@ pub static DILITHIUM2: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const DILITHIUM3_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x01\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x01"
 };
 
 /// DILITHIUM3 signature
@@ -293,7 +293,7 @@ pub static DILITHIUM3: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const DILITHIUM4_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x02\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x02"
 };
 
 /// DILITHIUM4 signature
@@ -305,7 +305,7 @@ pub static DILITHIUM4: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const FALCON512_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x03\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x03"
 };
 
 /// FALCON512 signature
@@ -317,7 +317,7 @@ pub static FALCON512: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const FALCON1024_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x04\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x04"
 };
 
 /// FALCON1024 signature
@@ -329,7 +329,7 @@ pub static FALCON1024: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const MQDSS3148_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x05\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x05"
 };
 
 /// MQDSS3148 signature
@@ -341,7 +341,7 @@ pub static MQDSS3148: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const MQDSS3164_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x06\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x06"
 };
 
 /// MQDSS3164 signature
@@ -353,7 +353,7 @@ pub static MQDSS3164: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const RAINBOW_IA_CLASSIC_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x07\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x07"
 };
 
 /// RAINBOW_IA_CLASSIC signature
@@ -365,7 +365,7 @@ pub static RAINBOW_IA_CLASSIC: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const RAINBOW_IA_CYCLIC_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x08\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x08"
 };
 
 /// RAINBOW_IA_CYCLIC signature
@@ -377,7 +377,7 @@ pub static RAINBOW_IA_CYCLIC: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const RAINBOW_IA_CYCLIC_COMPRESSED_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x09\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x09"
 };
 
 /// RAINBOW_IA_CYCLIC_COMPRESSED signature
@@ -389,7 +389,7 @@ pub static RAINBOW_IA_CYCLIC_COMPRESSED: SignatureAlgorithm = SignatureAlgorithm
 
 
 const RAINBOW_II_ICCLASSIC_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0A\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0A"
 };
 
 /// RAINBOW_II_ICCLASSIC signature
@@ -401,7 +401,7 @@ pub static RAINBOW_II_ICCLASSIC: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const RAINBOW_II_IC_CYCLIC_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0B\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0B"
 };
 
 /// RAINBOW_II_IC_CYCLIC signature
@@ -413,7 +413,7 @@ pub static RAINBOW_II_IC_CYCLIC: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const RAINBOW_II_IC_CYCLIC_COMPRESSED_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0C\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0C"
 };
 
 /// RAINBOW_II_IC_CYCLIC_COMPRESSED signature
@@ -425,7 +425,7 @@ pub static RAINBOW_II_IC_CYCLIC_COMPRESSED: SignatureAlgorithm = SignatureAlgori
 
 
 const RAINBOW_VC_CLASSIC_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0D\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0D"
 };
 
 /// RAINBOW_VC_CLASSIC signature
@@ -437,7 +437,7 @@ pub static RAINBOW_VC_CLASSIC: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const RAINBOW_VC_CYCLIC_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0E\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0E"
 };
 
 /// RAINBOW_VC_CYCLIC signature
@@ -449,7 +449,7 @@ pub static RAINBOW_VC_CYCLIC: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const RAINBOW_VC_CYCLIC_COMPRESSED_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0F\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x0F"
 };
 
 /// RAINBOW_VC_CYCLIC_COMPRESSED signature
@@ -461,7 +461,7 @@ pub static RAINBOW_VC_CYCLIC_COMPRESSED: SignatureAlgorithm = SignatureAlgorithm
 
 
 const SPHINCS_HARAKA128F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x10\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x10"
 };
 
 /// SPHINCS_HARAKA128F_ROBUST signature
@@ -473,7 +473,7 @@ pub static SPHINCS_HARAKA128F_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_HARAKA128F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x11\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x11"
 };
 
 /// SPHINCS_HARAKA128F_SIMPLE signature
@@ -485,7 +485,7 @@ pub static SPHINCS_HARAKA128F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_HARAKA128S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x12\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x12"
 };
 
 /// SPHINCS_HARAKA128S_ROBUST signature
@@ -497,7 +497,7 @@ pub static SPHINCS_HARAKA128S_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_HARAKA128S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x13\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x13"
 };
 
 /// SPHINCS_HARAKA128S_SIMPLE signature
@@ -509,7 +509,7 @@ pub static SPHINCS_HARAKA128S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_HARAKA192F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x14\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x14"
 };
 
 /// SPHINCS_HARAKA192F_ROBUST signature
@@ -521,7 +521,7 @@ pub static SPHINCS_HARAKA192F_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_HARAKA192F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x15\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x15"
 };
 
 /// SPHINCS_HARAKA192F_SIMPLE signature
@@ -533,7 +533,7 @@ pub static SPHINCS_HARAKA192F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_HARAKA192S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x16\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x16"
 };
 
 /// SPHINCS_HARAKA192S_ROBUST signature
@@ -545,7 +545,7 @@ pub static SPHINCS_HARAKA192S_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_HARAKA192S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x17\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x17"
 };
 
 /// SPHINCS_HARAKA192S_SIMPLE signature
@@ -557,7 +557,7 @@ pub static SPHINCS_HARAKA192S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_HARAKA256F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x18\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x18"
 };
 
 /// SPHINCS_HARAKA256F_ROBUST signature
@@ -569,7 +569,7 @@ pub static SPHINCS_HARAKA256F_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_HARAKA256F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x19\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x19"
 };
 
 /// SPHINCS_HARAKA256F_SIMPLE signature
@@ -581,7 +581,7 @@ pub static SPHINCS_HARAKA256F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_HARAKA256S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1A\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1A"
 };
 
 /// SPHINCS_HARAKA256S_ROBUST signature
@@ -593,7 +593,7 @@ pub static SPHINCS_HARAKA256S_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_HARAKA256S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1B\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1B"
 };
 
 /// SPHINCS_HARAKA256S_SIMPLE signature
@@ -605,7 +605,7 @@ pub static SPHINCS_HARAKA256S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_SHA256128F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1C\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1C"
 };
 
 /// SPHINCS_SHA256128F_ROBUST signature
@@ -617,7 +617,7 @@ pub static SPHINCS_SHA256128F_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_SHA256128F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1D\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1D"
 };
 
 /// SPHINCS_SHA256128F_SIMPLE signature
@@ -629,7 +629,7 @@ pub static SPHINCS_SHA256128F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_SHA256128S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1E\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1E"
 };
 
 /// SPHINCS_SHA256128S_ROBUST signature
@@ -641,7 +641,7 @@ pub static SPHINCS_SHA256128S_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_SHA256128S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1F\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x1F"
 };
 
 /// SPHINCS_SHA256128S_SIMPLE signature
@@ -653,7 +653,7 @@ pub static SPHINCS_SHA256128S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_SHA256192F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x20\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x20"
 };
 
 /// SPHINCS_SHA256192F_ROBUST signature
@@ -665,7 +665,7 @@ pub static SPHINCS_SHA256192F_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_SHA256192F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x21\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x21"
 };
 
 /// SPHINCS_SHA256192F_SIMPLE signature
@@ -677,7 +677,7 @@ pub static SPHINCS_SHA256192F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_SHA256192S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x22\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x22"
 };
 
 /// SPHINCS_SHA256192S_ROBUST signature
@@ -689,7 +689,7 @@ pub static SPHINCS_SHA256192S_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_SHA256192S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x23\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x23"
 };
 
 /// SPHINCS_SHA256192S_SIMPLE signature
@@ -701,7 +701,7 @@ pub static SPHINCS_SHA256192S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_SHA256256F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x24\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x24"
 };
 
 /// SPHINCS_SHA256256F_ROBUST signature
@@ -713,7 +713,7 @@ pub static SPHINCS_SHA256256F_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_SHA256256F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x25\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x25"
 };
 
 /// SPHINCS_SHA256256F_SIMPLE signature
@@ -725,7 +725,7 @@ pub static SPHINCS_SHA256256F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_SHA256256S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x26\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x26"
 };
 
 /// SPHINCS_SHA256256S_ROBUST signature
@@ -737,7 +737,7 @@ pub static SPHINCS_SHA256256S_ROBUST: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_SHA256256S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x27\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x27"
 };
 
 /// SPHINCS_SHA256256S_SIMPLE signature
@@ -749,7 +749,7 @@ pub static SPHINCS_SHA256256S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const SPHINCS_SHAKE256128F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x28\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x28"
 };
 
 /// SPHINCS_SHAKE256128F_ROBUST signature
@@ -761,7 +761,7 @@ pub static SPHINCS_SHAKE256128F_ROBUST: SignatureAlgorithm = SignatureAlgorithm 
 
 
 const SPHINCS_SHAKE256128F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x29\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x29"
 };
 
 /// SPHINCS_SHAKE256128F_SIMPLE signature
@@ -773,7 +773,7 @@ pub static SPHINCS_SHAKE256128F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm 
 
 
 const SPHINCS_SHAKE256128S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x2A\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x2A"
 };
 
 /// SPHINCS_SHAKE256128S_ROBUST signature
@@ -785,7 +785,7 @@ pub static SPHINCS_SHAKE256128S_ROBUST: SignatureAlgorithm = SignatureAlgorithm 
 
 
 const SPHINCS_SHAKE256128S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x2B\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x2B"
 };
 
 /// SPHINCS_SHAKE256128S_SIMPLE signature
@@ -797,7 +797,7 @@ pub static SPHINCS_SHAKE256128S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm 
 
 
 const SPHINCS_SHAKE256192F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x2C\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x2C"
 };
 
 /// SPHINCS_SHAKE256192F_ROBUST signature
@@ -809,7 +809,7 @@ pub static SPHINCS_SHAKE256192F_ROBUST: SignatureAlgorithm = SignatureAlgorithm 
 
 
 const SPHINCS_SHAKE256192F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x2D\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x2D"
 };
 
 /// SPHINCS_SHAKE256192F_SIMPLE signature
@@ -821,7 +821,7 @@ pub static SPHINCS_SHAKE256192F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm 
 
 
 const SPHINCS_SHAKE256192S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x2E\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x2E"
 };
 
 /// SPHINCS_SHAKE256192S_ROBUST signature
@@ -833,7 +833,7 @@ pub static SPHINCS_SHAKE256192S_ROBUST: SignatureAlgorithm = SignatureAlgorithm 
 
 
 const SPHINCS_SHAKE256192S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x2F\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x2F"
 };
 
 /// SPHINCS_SHAKE256192S_SIMPLE signature
@@ -845,7 +845,7 @@ pub static SPHINCS_SHAKE256192S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm 
 
 
 const SPHINCS_SHAKE256256F_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x30\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x30"
 };
 
 /// SPHINCS_SHAKE256256F_ROBUST signature
@@ -857,7 +857,7 @@ pub static SPHINCS_SHAKE256256F_ROBUST: SignatureAlgorithm = SignatureAlgorithm 
 
 
 const SPHINCS_SHAKE256256F_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x31\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x31"
 };
 
 /// SPHINCS_SHAKE256256F_SIMPLE signature
@@ -869,7 +869,7 @@ pub static SPHINCS_SHAKE256256F_SIMPLE: SignatureAlgorithm = SignatureAlgorithm 
 
 
 const SPHINCS_SHAKE256256S_ROBUST_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x32\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x32"
 };
 
 /// SPHINCS_SHAKE256256S_ROBUST signature
@@ -881,7 +881,7 @@ pub static SPHINCS_SHAKE256256S_ROBUST: SignatureAlgorithm = SignatureAlgorithm 
 
 
 const SPHINCS_SHAKE256256S_SIMPLE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x33\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x33"
 };
 
 /// SPHINCS_SHAKE256256S_SIMPLE signature
@@ -893,7 +893,7 @@ pub static SPHINCS_SHAKE256256S_SIMPLE: SignatureAlgorithm = SignatureAlgorithm 
 
 
 const PICNIC_L1_FS_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x34\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x34"
 };
 
 /// PICNIC_L1_FS signature
@@ -905,7 +905,7 @@ pub static PICNIC_L1_FS: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const PICNIC_L1_UR_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x35\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x35"
 };
 
 /// PICNIC_L1_UR signature
@@ -917,7 +917,7 @@ pub static PICNIC_L1_UR: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const PICNIC_L3_FS_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x36\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x36"
 };
 
 /// PICNIC_L3_FS signature
@@ -929,7 +929,7 @@ pub static PICNIC_L3_FS: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const PICNIC_L3_UR_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x37\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x37"
 };
 
 /// PICNIC_L3_UR signature
@@ -941,7 +941,7 @@ pub static PICNIC_L3_UR: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const PICNIC_L5_FS_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x38\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x38"
 };
 
 /// PICNIC_L5_FS signature
@@ -953,7 +953,7 @@ pub static PICNIC_L5_FS: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const PICNIC_L5_UR_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x39\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x39"
 };
 
 /// PICNIC_L5_UR signature
@@ -965,7 +965,7 @@ pub static PICNIC_L5_UR: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const PICNIC2_L1_FS_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x3A\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x3A"
 };
 
 /// PICNIC2_L1_FS signature
@@ -977,7 +977,7 @@ pub static PICNIC2_L1_FS: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const PICNIC2_L3_FS_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x3B\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x3B"
 };
 
 /// PICNIC2_L3_FS signature
@@ -989,7 +989,7 @@ pub static PICNIC2_L3_FS: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const PICNIC2_L5_FS_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x3C\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x3C"
 };
 
 /// PICNIC2_L5_FS signature
@@ -1001,7 +1001,7 @@ pub static PICNIC2_L5_FS: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const Q_TESLA_PI_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x3D\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x3D"
 };
 
 /// Q_TESLA_PI signature
@@ -1013,7 +1013,7 @@ pub static Q_TESLA_PI: SignatureAlgorithm = SignatureAlgorithm {
 
 
 const Q_TESLA_PIII_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x3E\x05\x00"
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x3E"
 };
 
 /// Q_TESLA_PIII signature
