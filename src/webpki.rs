@@ -159,6 +159,7 @@ pub use signed_data::{
     PICNIC2_L5_FS,
     Q_TESLA_PI,
     Q_TESLA_PIII,
+    XMSS,
 
 };
 
