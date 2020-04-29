@@ -57,7 +57,9 @@ macro_rules! get_kem {
 pub fn key_id_to_kem(algorithm_id: untrusted::Input) -> Result<&'static KemAlgorithm, error::Error> {
     get_kem!(X25519, algorithm_id);
     get_kem!(CSIDH, algorithm_id);
+    get_kem!(SIKEP434COMPRESSED, algorithm_id);
     get_kem!(KYBER512, algorithm_id);
+    get_kem!(NTRUHPS2048509, algorithm_id);
     get_kem!(KYBER768, algorithm_id);
     get_kem!(KYBER1024, algorithm_id);
     get_kem!(KYBER51290S, algorithm_id);
@@ -79,7 +81,6 @@ pub fn key_id_to_kem(algorithm_id: untrusted::Input) -> Result<&'static KemAlgor
     get_kem!(NEWHOPE512CCA, algorithm_id);
     get_kem!(NEWHOPE1024CPA, algorithm_id);
     get_kem!(NEWHOPE1024CCA, algorithm_id);
-    get_kem!(NTRUHPS2048509, algorithm_id);
     get_kem!(NTRUHPS2048677, algorithm_id);
     get_kem!(NTRUHPS4096821, algorithm_id);
     get_kem!(NTRUHRSS701, algorithm_id);
@@ -106,7 +107,6 @@ pub fn key_id_to_kem(algorithm_id: untrusted::Input) -> Result<&'static KemAlgor
     get_kem!(HQC2562CCA2, algorithm_id);
     get_kem!(HQC2563CCA2, algorithm_id);
     get_kem!(BIKEL1FO, algorithm_id);
-    get_kem!(SIKEP434COMPRESSED, algorithm_id);
 
     Err(error::Error::KEMFailure)
 }
