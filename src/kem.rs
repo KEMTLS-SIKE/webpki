@@ -122,8 +122,10 @@ pub static X25519: KemAlgorithm = KemAlgorithm {
     kem: &ring::agreement::X25519,
 };
 
+
+
 const CSIDH_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x40"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x41"
 };
 
 /// csidh kem
@@ -134,7 +136,7 @@ pub static CSIDH: KemAlgorithm = KemAlgorithm {
 
 
 const KYBER512_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x41"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x42"
 };
 
 /// kyber512 kem
@@ -145,7 +147,7 @@ pub static KYBER512: KemAlgorithm = KemAlgorithm {
 
 
 const KYBER768_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x42"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x43"
 };
 
 /// kyber768 kem
@@ -156,7 +158,7 @@ pub static KYBER768: KemAlgorithm = KemAlgorithm {
 
 
 const KYBER1024_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x43"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x44"
 };
 
 /// kyber1024 kem
@@ -167,7 +169,7 @@ pub static KYBER1024: KemAlgorithm = KemAlgorithm {
 
 
 const KYBER51290S_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x44"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x45"
 };
 
 /// kyber51290s kem
@@ -178,7 +180,7 @@ pub static KYBER51290S: KemAlgorithm = KemAlgorithm {
 
 
 const KYBER76890S_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x45"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x46"
 };
 
 /// kyber76890s kem
@@ -189,7 +191,7 @@ pub static KYBER76890S: KemAlgorithm = KemAlgorithm {
 
 
 const KYBER102490S_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x46"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x47"
 };
 
 /// kyber102490s kem
@@ -200,7 +202,7 @@ pub static KYBER102490S: KemAlgorithm = KemAlgorithm {
 
 
 const BABYBEAR_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x47"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x48"
 };
 
 /// babybear kem
@@ -211,7 +213,7 @@ pub static BABYBEAR: KemAlgorithm = KemAlgorithm {
 
 
 const BABYBEAREPHEM_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x48"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x49"
 };
 
 /// babybearephem kem
@@ -222,7 +224,7 @@ pub static BABYBEAREPHEM: KemAlgorithm = KemAlgorithm {
 
 
 const MAMABEAR_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x49"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x4A"
 };
 
 /// mamabear kem
@@ -233,7 +235,7 @@ pub static MAMABEAR: KemAlgorithm = KemAlgorithm {
 
 
 const MAMABEAREPHEM_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x4A"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x4B"
 };
 
 /// mamabearephem kem
@@ -244,7 +246,7 @@ pub static MAMABEAREPHEM: KemAlgorithm = KemAlgorithm {
 
 
 const PAPABEAR_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x4B"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x4C"
 };
 
 /// papabear kem
@@ -255,7 +257,7 @@ pub static PAPABEAR: KemAlgorithm = KemAlgorithm {
 
 
 const PAPABEAREPHEM_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x4C"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x4D"
 };
 
 /// papabearephem kem
@@ -266,7 +268,7 @@ pub static PAPABEAREPHEM: KemAlgorithm = KemAlgorithm {
 
 
 const LIGHTSABER_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x4D"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x4E"
 };
 
 /// lightsaber kem
@@ -277,7 +279,7 @@ pub static LIGHTSABER: KemAlgorithm = KemAlgorithm {
 
 
 const SABER_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x4E"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x4F"
 };
 
 /// saber kem
@@ -288,7 +290,7 @@ pub static SABER: KemAlgorithm = KemAlgorithm {
 
 
 const FIRESABER_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x4F"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x50"
 };
 
 /// firesaber kem
@@ -299,7 +301,7 @@ pub static FIRESABER: KemAlgorithm = KemAlgorithm {
 
 
 const LEDAKEMLT12_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x50"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x51"
 };
 
 /// ledakemlt12 kem
@@ -310,7 +312,7 @@ pub static LEDAKEMLT12: KemAlgorithm = KemAlgorithm {
 
 
 const LEDAKEMLT32_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x51"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x52"
 };
 
 /// ledakemlt32 kem
@@ -321,7 +323,7 @@ pub static LEDAKEMLT32: KemAlgorithm = KemAlgorithm {
 
 
 const LEDAKEMLT52_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x52"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x53"
 };
 
 /// ledakemlt52 kem
@@ -332,7 +334,7 @@ pub static LEDAKEMLT52: KemAlgorithm = KemAlgorithm {
 
 
 const NEWHOPE512CPA_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x53"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x54"
 };
 
 /// newhope512cpa kem
@@ -343,7 +345,7 @@ pub static NEWHOPE512CPA: KemAlgorithm = KemAlgorithm {
 
 
 const NEWHOPE512CCA_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x54"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x55"
 };
 
 /// newhope512cca kem
@@ -354,7 +356,7 @@ pub static NEWHOPE512CCA: KemAlgorithm = KemAlgorithm {
 
 
 const NEWHOPE1024CPA_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x55"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x56"
 };
 
 /// newhope1024cpa kem
@@ -365,7 +367,7 @@ pub static NEWHOPE1024CPA: KemAlgorithm = KemAlgorithm {
 
 
 const NEWHOPE1024CCA_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x56"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x57"
 };
 
 /// newhope1024cca kem
@@ -376,7 +378,7 @@ pub static NEWHOPE1024CCA: KemAlgorithm = KemAlgorithm {
 
 
 const NTRUHPS2048509_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x57"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x58"
 };
 
 /// ntruhps2048509 kem
@@ -387,7 +389,7 @@ pub static NTRUHPS2048509: KemAlgorithm = KemAlgorithm {
 
 
 const NTRUHPS2048677_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x58"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x59"
 };
 
 /// ntruhps2048677 kem
@@ -398,7 +400,7 @@ pub static NTRUHPS2048677: KemAlgorithm = KemAlgorithm {
 
 
 const NTRUHPS4096821_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x59"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x5A"
 };
 
 /// ntruhps4096821 kem
@@ -409,7 +411,7 @@ pub static NTRUHPS4096821: KemAlgorithm = KemAlgorithm {
 
 
 const NTRUHRSS701_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x5A"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x5B"
 };
 
 /// ntruhrss701 kem
@@ -420,7 +422,7 @@ pub static NTRUHRSS701: KemAlgorithm = KemAlgorithm {
 
 
 const FRODOKEM640AES_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x5B"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x5C"
 };
 
 /// frodokem640aes kem
@@ -431,7 +433,7 @@ pub static FRODOKEM640AES: KemAlgorithm = KemAlgorithm {
 
 
 const FRODOKEM640SHAKE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x5C"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x5D"
 };
 
 /// frodokem640shake kem
@@ -442,7 +444,7 @@ pub static FRODOKEM640SHAKE: KemAlgorithm = KemAlgorithm {
 
 
 const FRODOKEM976AES_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x5D"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x5E"
 };
 
 /// frodokem976aes kem
@@ -453,7 +455,7 @@ pub static FRODOKEM976AES: KemAlgorithm = KemAlgorithm {
 
 
 const FRODOKEM976SHAKE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x5E"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x5F"
 };
 
 /// frodokem976shake kem
@@ -464,7 +466,7 @@ pub static FRODOKEM976SHAKE: KemAlgorithm = KemAlgorithm {
 
 
 const FRODOKEM1344AES_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x5F"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x60"
 };
 
 /// frodokem1344aes kem
@@ -475,7 +477,7 @@ pub static FRODOKEM1344AES: KemAlgorithm = KemAlgorithm {
 
 
 const FRODOKEM1344SHAKE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x60"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x61"
 };
 
 /// frodokem1344shake kem
@@ -486,7 +488,7 @@ pub static FRODOKEM1344SHAKE: KemAlgorithm = KemAlgorithm {
 
 
 const MCELIECE348864_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x61"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x62"
 };
 
 /// mceliece348864 kem
@@ -497,7 +499,7 @@ pub static MCELIECE348864: KemAlgorithm = KemAlgorithm {
 
 
 const MCELIECE348864F_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x62"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x63"
 };
 
 /// mceliece348864f kem
@@ -508,7 +510,7 @@ pub static MCELIECE348864F: KemAlgorithm = KemAlgorithm {
 
 
 const MCELIECE460896_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x63"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x64"
 };
 
 /// mceliece460896 kem
@@ -519,7 +521,7 @@ pub static MCELIECE460896: KemAlgorithm = KemAlgorithm {
 
 
 const MCELIECE460896F_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x64"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x65"
 };
 
 /// mceliece460896f kem
@@ -530,7 +532,7 @@ pub static MCELIECE460896F: KemAlgorithm = KemAlgorithm {
 
 
 const MCELIECE6688128_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x65"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x66"
 };
 
 /// mceliece6688128 kem
@@ -541,7 +543,7 @@ pub static MCELIECE6688128: KemAlgorithm = KemAlgorithm {
 
 
 const MCELIECE6688128F_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x66"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x67"
 };
 
 /// mceliece6688128f kem
@@ -552,7 +554,7 @@ pub static MCELIECE6688128F: KemAlgorithm = KemAlgorithm {
 
 
 const MCELIECE6960119_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x67"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x68"
 };
 
 /// mceliece6960119 kem
@@ -563,7 +565,7 @@ pub static MCELIECE6960119: KemAlgorithm = KemAlgorithm {
 
 
 const MCELIECE6960119F_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x68"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x69"
 };
 
 /// mceliece6960119f kem
@@ -574,7 +576,7 @@ pub static MCELIECE6960119F: KemAlgorithm = KemAlgorithm {
 
 
 const MCELIECE8192128_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x69"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x6A"
 };
 
 /// mceliece8192128 kem
@@ -585,7 +587,7 @@ pub static MCELIECE8192128: KemAlgorithm = KemAlgorithm {
 
 
 const MCELIECE8192128F_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x6A"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x6B"
 };
 
 /// mceliece8192128f kem
@@ -596,7 +598,7 @@ pub static MCELIECE8192128F: KemAlgorithm = KemAlgorithm {
 
 
 const HQC1281CCA2_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x6B"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x6C"
 };
 
 /// hqc1281cca2 kem
@@ -607,7 +609,7 @@ pub static HQC1281CCA2: KemAlgorithm = KemAlgorithm {
 
 
 const HQC1921CCA2_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x6C"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x6D"
 };
 
 /// hqc1921cca2 kem
@@ -618,7 +620,7 @@ pub static HQC1921CCA2: KemAlgorithm = KemAlgorithm {
 
 
 const HQC1922CCA2_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x6D"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x6E"
 };
 
 /// hqc1922cca2 kem
@@ -629,7 +631,7 @@ pub static HQC1922CCA2: KemAlgorithm = KemAlgorithm {
 
 
 const HQC2561CCA2_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x6E"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x6F"
 };
 
 /// hqc2561cca2 kem
@@ -640,7 +642,7 @@ pub static HQC2561CCA2: KemAlgorithm = KemAlgorithm {
 
 
 const HQC2562CCA2_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x6F"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x70"
 };
 
 /// hqc2562cca2 kem
@@ -651,7 +653,7 @@ pub static HQC2562CCA2: KemAlgorithm = KemAlgorithm {
 
 
 const HQC2563CCA2_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x70"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x71"
 };
 
 /// hqc2563cca2 kem
@@ -662,7 +664,7 @@ pub static HQC2563CCA2: KemAlgorithm = KemAlgorithm {
 
 
 const BIKEL1FO_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x71"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x72"
 };
 
 /// bikel1fo kem
@@ -673,7 +675,7 @@ pub static BIKEL1FO: KemAlgorithm = KemAlgorithm {
 
 
 const SIKEP434COMPRESSED_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x72"
+     asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x73"
 };
 
 /// sikep434compressed kem

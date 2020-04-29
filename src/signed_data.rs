@@ -1036,6 +1036,19 @@ pub static XMSS: SignatureAlgorithm = SignatureAlgorithm {
 };
 
 
+const GEMSS128_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: b"\x06\x0B\x2A\x06\x01\x04\x01\x82\x37\x59\x02\xFE\x40"
+};
+
+/// GEMSS128 signature
+pub static GEMSS128: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: GEMSS128_ID,
+    signature_alg_id: GEMSS128_ID,
+    verification_alg: &signature::GEMSS128,
+};
+
+
+
 #[derive(Debug, PartialEq)]
 pub(crate) struct AlgorithmIdentifier {
     pub(crate) asn1_id_value: &'static [u8],

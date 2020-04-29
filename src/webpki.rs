@@ -160,7 +160,7 @@ pub use signed_data::{
     Q_TESLA_PI,
     Q_TESLA_PIII,
     XMSS,
-
+    GEMSS128,
 };
 
 pub use time::Time;
