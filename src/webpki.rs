@@ -37,7 +37,7 @@
     unused_import_braces,
     unused_results,
     variant_size_differences,
-    warnings
+    //warnings
 )]
 
 #[cfg(all(test, not(feature = "std")))]
@@ -70,6 +70,7 @@ pub use signed_data::{
     ED25519, RSA_PKCS1_2048_8192_SHA256, RSA_PKCS1_2048_8192_SHA384, RSA_PKCS1_2048_8192_SHA512,
     RSA_PKCS1_3072_8192_SHA384, RSA_PSS_2048_8192_SHA256_LEGACY_KEY,
     RSA_PSS_2048_8192_SHA384_LEGACY_KEY, RSA_PSS_2048_8192_SHA512_LEGACY_KEY,
+    DILITHIUM2,
 };
 
 pub use time::Time;

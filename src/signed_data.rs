@@ -14,6 +14,7 @@
 
 use crate::{der, Error};
 use ring::signature;
+use oqs;
 
 /// X.509 certificates and related items that are signed are almost always
 /// encoded in the format "tbs||signatureAlgorithm||signature". This structure
@@ -154,12 +155,24 @@ pub(crate) fn verify_signature(
     {
         return Err(Error::UnsupportedSignatureAlgorithmForPublicKey);
     }
-    signature::UnparsedPublicKey::new(
-        signature_alg.verification_alg,
-        spki.key_value.as_slice_less_safe(),
-    )
-    .verify(msg.as_slice_less_safe(), signature.as_slice_less_safe())
-    .map_err(|_| Error::InvalidSignatureForPublicKey)
+    match signature_alg.verification_alg {
+        VerificationAlgorithm::Ring(alg) => {
+            signature::UnparsedPublicKey::new(
+                alg,
+                spki.key_value.as_slice_less_safe(),
+            )
+            .verify(msg.as_slice_less_safe(), signature.as_slice_less_safe())
+            .map_err(|_| Error::InvalidSignatureForPublicKey)
+        },
+        VerificationAlgorithm::Oqs(alg) => {
+            let sigalg = oqs::sig::Sig::new(*alg).expect("algorithm disabled");
+            let pk = sigalg.public_key_from_bytes(spki.key_value.as_slice_less_safe());
+            let sig = sigalg.signature_from_bytes(signature.as_slice_less_safe());
+            sigalg
+            .verify(msg.as_slice_less_safe(), sig, pk)
+            .map_err(|_| Error::InvalidSignatureForPublicKey)
+        }
+    }
 }
 
 struct SubjectPublicKeyInfo<'a> {
@@ -182,67 +195,72 @@ fn parse_spki_value(input: untrusted::Input) -> Result<SubjectPublicKeyInfo, Err
     })
 }
 
+enum VerificationAlgorithm {
+    Ring(&'static dyn signature::VerificationAlgorithm),
+    Oqs(&'static oqs::sig::Algorithm),
+}
+
 /// A signature algorithm.
 pub struct SignatureAlgorithm {
     public_key_alg_id: AlgorithmIdentifier,
     signature_alg_id: AlgorithmIdentifier,
-    verification_alg: &'static dyn signature::VerificationAlgorithm,
+    verification_alg: VerificationAlgorithm,
 }
 
 /// ECDSA signatures using the P-256 curve and SHA-256.
 pub static ECDSA_P256_SHA256: SignatureAlgorithm = SignatureAlgorithm {
     public_key_alg_id: ECDSA_P256,
     signature_alg_id: ECDSA_SHA256,
-    verification_alg: &signature::ECDSA_P256_SHA256_ASN1,
+    verification_alg: VerificationAlgorithm::Ring(&signature::ECDSA_P256_SHA256_ASN1),
 };
 
 /// ECDSA signatures using the P-256 curve and SHA-384. Deprecated.
 pub static ECDSA_P256_SHA384: SignatureAlgorithm = SignatureAlgorithm {
     public_key_alg_id: ECDSA_P256,
     signature_alg_id: ECDSA_SHA384,
-    verification_alg: &signature::ECDSA_P256_SHA384_ASN1,
+    verification_alg: VerificationAlgorithm::Ring(&signature::ECDSA_P256_SHA384_ASN1),
 };
 
 /// ECDSA signatures using the P-384 curve and SHA-256. Deprecated.
 pub static ECDSA_P384_SHA256: SignatureAlgorithm = SignatureAlgorithm {
     public_key_alg_id: ECDSA_P384,
     signature_alg_id: ECDSA_SHA256,
-    verification_alg: &signature::ECDSA_P384_SHA256_ASN1,
+    verification_alg: VerificationAlgorithm::Ring(&signature::ECDSA_P384_SHA256_ASN1),
 };
 
 /// ECDSA signatures using the P-384 curve and SHA-384.
 pub static ECDSA_P384_SHA384: SignatureAlgorithm = SignatureAlgorithm {
     public_key_alg_id: ECDSA_P384,
     signature_alg_id: ECDSA_SHA384,
-    verification_alg: &signature::ECDSA_P384_SHA384_ASN1,
+    verification_alg: VerificationAlgorithm::Ring(&signature::ECDSA_P384_SHA384_ASN1),
 };
 
 /// RSA PKCS#1 1.5 signatures using SHA-256 for keys of 2048-8192 bits.
 pub static RSA_PKCS1_2048_8192_SHA256: SignatureAlgorithm = SignatureAlgorithm {
     public_key_alg_id: RSA_ENCRYPTION,
     signature_alg_id: RSA_PKCS1_SHA256,
-    verification_alg: &signature::RSA_PKCS1_2048_8192_SHA256,
+    verification_alg: VerificationAlgorithm::Ring(&signature::RSA_PKCS1_2048_8192_SHA256),
 };
 
 /// RSA PKCS#1 1.5 signatures using SHA-384 for keys of 2048-8192 bits.
 pub static RSA_PKCS1_2048_8192_SHA384: SignatureAlgorithm = SignatureAlgorithm {
     public_key_alg_id: RSA_ENCRYPTION,
     signature_alg_id: RSA_PKCS1_SHA384,
-    verification_alg: &signature::RSA_PKCS1_2048_8192_SHA384,
+    verification_alg: VerificationAlgorithm::Ring(&signature::RSA_PKCS1_2048_8192_SHA384),
 };
 
 /// RSA PKCS#1 1.5 signatures using SHA-512 for keys of 2048-8192 bits.
 pub static RSA_PKCS1_2048_8192_SHA512: SignatureAlgorithm = SignatureAlgorithm {
     public_key_alg_id: RSA_ENCRYPTION,
     signature_alg_id: RSA_PKCS1_SHA512,
-    verification_alg: &signature::RSA_PKCS1_2048_8192_SHA512,
+    verification_alg: VerificationAlgorithm::Ring(&signature::RSA_PKCS1_2048_8192_SHA512),
 };
 
 /// RSA PKCS#1 1.5 signatures using SHA-384 for keys of 3072-8192 bits.
 pub static RSA_PKCS1_3072_8192_SHA384: SignatureAlgorithm = SignatureAlgorithm {
     public_key_alg_id: RSA_ENCRYPTION,
     signature_alg_id: RSA_PKCS1_SHA384,
-    verification_alg: &signature::RSA_PKCS1_3072_8192_SHA384,
+    verification_alg: VerificationAlgorithm::Ring(&signature::RSA_PKCS1_3072_8192_SHA384),
 };
 
 /// RSA PSS signatures using SHA-256 for keys of 2048-8192 bits and of
@@ -250,7 +268,7 @@ pub static RSA_PKCS1_3072_8192_SHA384: SignatureAlgorithm = SignatureAlgorithm {
 pub static RSA_PSS_2048_8192_SHA256_LEGACY_KEY: SignatureAlgorithm = SignatureAlgorithm {
     public_key_alg_id: RSA_ENCRYPTION,
     signature_alg_id: RSA_PSS_SHA256,
-    verification_alg: &signature::RSA_PSS_2048_8192_SHA256,
+    verification_alg: VerificationAlgorithm::Ring(&signature::RSA_PSS_2048_8192_SHA256),
 };
 
 /// RSA PSS signatures using SHA-384 for keys of 2048-8192 bits and of
@@ -258,7 +276,7 @@ pub static RSA_PSS_2048_8192_SHA256_LEGACY_KEY: SignatureAlgorithm = SignatureAl
 pub static RSA_PSS_2048_8192_SHA384_LEGACY_KEY: SignatureAlgorithm = SignatureAlgorithm {
     public_key_alg_id: RSA_ENCRYPTION,
     signature_alg_id: RSA_PSS_SHA384,
-    verification_alg: &signature::RSA_PSS_2048_8192_SHA384,
+    verification_alg: VerificationAlgorithm::Ring(&signature::RSA_PSS_2048_8192_SHA384),
 };
 
 /// RSA PSS signatures using SHA-512 for keys of 2048-8192 bits and of
@@ -266,14 +284,26 @@ pub static RSA_PSS_2048_8192_SHA384_LEGACY_KEY: SignatureAlgorithm = SignatureAl
 pub static RSA_PSS_2048_8192_SHA512_LEGACY_KEY: SignatureAlgorithm = SignatureAlgorithm {
     public_key_alg_id: RSA_ENCRYPTION,
     signature_alg_id: RSA_PSS_SHA512,
-    verification_alg: &signature::RSA_PSS_2048_8192_SHA512,
+    verification_alg: VerificationAlgorithm::Ring(&signature::RSA_PSS_2048_8192_SHA512),
 };
 
 /// ED25519 signatures according to RFC 8410
 pub static ED25519: SignatureAlgorithm = SignatureAlgorithm {
     public_key_alg_id: ED_25519,
     signature_alg_id: ED_25519,
-    verification_alg: &signature::ED25519,
+    verification_alg: VerificationAlgorithm::Ring(&signature::ED25519),
+};
+
+
+const DILITHIUM2_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("data/alg-dilithium2.der")),
+};
+
+/// Dilithium2 signatures
+pub static DILITHIUM2: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: DILITHIUM2_ID,
+    signature_alg_id: DILITHIUM2_ID,
+    verification_alg: VerificationAlgorithm::Oqs(&oqs::sig::Algorithm::Dilithium2),
 };
 
 struct AlgorithmIdentifier {
@@ -335,6 +365,8 @@ const RSA_PSS_SHA512: AlgorithmIdentifier = AlgorithmIdentifier {
 const ED_25519: AlgorithmIdentifier = AlgorithmIdentifier {
     asn1_id_value: untrusted::Input::from(include_bytes!("data/alg-ed25519.der")),
 };
+
+// ADD ALGORITHMS
 
 #[cfg(test)]
 mod tests {
