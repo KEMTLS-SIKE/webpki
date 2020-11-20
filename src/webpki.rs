@@ -70,8 +70,9 @@ pub use signed_data::{
     ED25519, RSA_PKCS1_2048_8192_SHA256, RSA_PKCS1_2048_8192_SHA384, RSA_PKCS1_2048_8192_SHA512,
     RSA_PKCS1_3072_8192_SHA384, RSA_PSS_2048_8192_SHA256_LEGACY_KEY,
     RSA_PSS_2048_8192_SHA384_LEGACY_KEY, RSA_PSS_2048_8192_SHA512_LEGACY_KEY,
-    DILITHIUM2,
 };
+include!("generated/oqs_sigschemes_use.rs");
+
 mod kem;
 pub use kem::*;
 
@@ -152,6 +153,66 @@ impl<'a> EndEntityCert<'a> {
             time,
             0,
         )
+    }
+
+    /// Check if this is a KEM cert by checking if we know how to get the public key
+    pub fn is_kem_cert(&self) -> bool {
+        signed_data::parse_spki_value(self.inner.spki.value()).map(
+            |spki| key_id_to_kem(spki.algorithm_id_value)).is_ok()
+    }
+
+    /// Get the public key data from the certificate
+    ///
+    /// Returns algorithm id and key value
+    pub fn public_key(&'a self) -> Result<(&'static KemAlgorithm, untrusted::Input<'a>), Error>{
+        let spki = signed_data::parse_spki_value(self.inner.spki.value())?;
+        let algorithm = key_id_to_kem(spki.algorithm_id_value)?;
+        let key_value = spki.key_value;
+        Ok((algorithm, key_value))
+    }
+
+    /// Decapsulate
+    pub fn decapsulate(&self, private_key_der: untrusted::Input, ciphertext: untrusted::Input) -> Result<Vec<u8>, Error> {
+        let spki = signed_data::parse_spki_value(self.inner.spki.value())?;
+        let algorithm = key_id_to_kem(spki.algorithm_id_value)?;
+        let private_key = private_key_der.read_all(Error::BadDER, |private_key_der| {
+            der::nested_mut(private_key_der, der::Tag::Sequence, Error::BadDER, |data| {
+                let _ = der::small_nonnegative_integer(data)?;
+                //let m1 = data.mark();
+                der::nested_mut(data, der::Tag::Sequence, Error::BadDER, |keyinfo| {
+                    let _ = der::expect_tag_and_get_value(keyinfo, der::Tag::OID)?;
+                    Ok(())
+                })?;
+                //let m2 = data.mark();
+                //let privkey_algorithm = untrusted::Input::from(&data.get_input_between_marks(m1, m2).unwrap().as_slice_less_safe()[2..]);
+                //let privkey_algorithm = key_id_to_kem(privkey_algorithm)?;
+                //assert_eq!(privkey_algorithm, algorithm, "Public key doesn't match private key in OID");
+
+                der::nested_mut(data, der::Tag::OctetString, Error::BadDER, |data| {
+                    der::expect_tag_and_get_value(data, der::Tag::OctetString)
+                })
+            })
+        })?;
+        let kem = oqs::kem::Kem::new(algorithm.kem).expect("algorithm disabled");
+        let private_key = kem.secret_key_from_bytes(private_key.as_slice_less_safe());
+        decapsulate(algorithm, private_key, ciphertext)
+    }
+
+    /// Encapsulate
+    pub fn encapsulate(&self) -> Result<(oqs::kem::Ciphertext, oqs::kem::SharedSecret), Error> {
+        let spki = signed_data::parse_spki_value(self.inner.spki.value())?;
+        let algorithm = key_id_to_kem(spki.algorithm_id_value)?;
+        encapsulate(algorithm, spki.key_value)
+    }
+
+    /// Convert DER to the private key that belongs to this certificate.
+    pub fn get_private_key(&self, encoded: &'a [u8]) -> Option<&'a [u8]> {
+        let spki = signed_data::parse_spki_value(self.inner.spki.value());
+        if let Ok(spki) = spki {
+            Some(&encoded[0..spki.algorithm_id_value.len()])
+        } else {
+            None
+        }
     }
 
     /// Verifies that the end-entity certificate is valid for use by a TLS

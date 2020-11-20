@@ -1,6 +1,7 @@
 import subprocess
 import os
 
+# sigs
 kems = [('kyber512', 'Kyber512')]
 sigalgs = [('dilithium2', 'Dilithium2')]
 
@@ -30,6 +31,11 @@ pub static {alg.upper()}: SignatureAlgorithm = SignatureAlgorithm {{
 }};
 """)
 
+with open('generated/oqs_sigschemes_use.rs', 'w') as fh:
+    for alg, oqsalg in sigalgs:
+        fh.write(f"pub use signed_data::{alg.upper()};\n")
+
+## KEMs
 for index, (alg, oqsalg) in enumerate(kems):
     with open(f'data/alg-{alg}.ascii', 'w') as fh:
         fh.write(f"OBJECT_IDENTIFIER {{ 1.3.6.1.4.1.44363.46.{index} }}\n")
@@ -60,4 +66,4 @@ with open('generated/get_kem.rs', 'w') as fh:
         if check_key_id(&{alg.upper()}, algorithm_id) {{
             return Ok(&{alg.upper()});
         }}
-        """);
+""")

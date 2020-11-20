@@ -175,16 +175,16 @@ pub(crate) fn verify_signature(
     }
 }
 
-struct SubjectPublicKeyInfo<'a> {
-    algorithm_id_value: untrusted::Input<'a>,
-    key_value: untrusted::Input<'a>,
+pub(crate) struct SubjectPublicKeyInfo<'a> {
+    pub(crate) algorithm_id_value: untrusted::Input<'a>,
+    pub(crate) key_value: untrusted::Input<'a>,
 }
 
 // Parse the public key into an algorithm OID, an optional curve OID, and the
 // key value. The caller needs to check whether these match the
 // `PublicKeyAlgorithm` for the `SignatureAlgorithm` that is matched when
 // parsing the signature.
-fn parse_spki_value(input: untrusted::Input) -> Result<SubjectPublicKeyInfo, Error> {
+pub(crate) fn parse_spki_value(input: untrusted::Input) -> Result<SubjectPublicKeyInfo, Error> {
     input.read_all(Error::BadDER, |input| {
         let algorithm_id_value = der::expect_tag_and_get_value(input, der::Tag::Sequence)?;
         let key_value = der::bit_string_with_no_unused_bits(input)?;
