@@ -294,24 +294,12 @@ pub static ED25519: SignatureAlgorithm = SignatureAlgorithm {
     verification_alg: VerificationAlgorithm::Ring(&signature::ED25519),
 };
 
-
-const DILITHIUM2_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("data/alg-dilithium2.der")),
-};
-
-/// Dilithium2 signatures
-pub static DILITHIUM2: SignatureAlgorithm = SignatureAlgorithm {
-    public_key_alg_id: DILITHIUM2_ID,
-    signature_alg_id: DILITHIUM2_ID,
-    verification_alg: VerificationAlgorithm::Oqs(&oqs::sig::Algorithm::Dilithium2),
-};
-
-struct AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input<'static>,
+pub(crate) struct AlgorithmIdentifier {
+    pub(crate) asn1_id_value: untrusted::Input<'static>,
 }
 
 impl AlgorithmIdentifier {
-    fn matches_algorithm_id_value(&self, encoded: untrusted::Input) -> bool {
+    pub(crate) fn matches_algorithm_id_value(&self, encoded: untrusted::Input) -> bool {
         encoded == self.asn1_id_value
     }
 }
@@ -366,7 +354,7 @@ const ED_25519: AlgorithmIdentifier = AlgorithmIdentifier {
     asn1_id_value: untrusted::Input::from(include_bytes!("data/alg-ed25519.der")),
 };
 
-// ADD ALGORITHMS
+include!("generated/oqs_sigschemes.rs");
 
 #[cfg(test)]
 mod tests {

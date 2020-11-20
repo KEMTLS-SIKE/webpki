@@ -72,6 +72,8 @@ pub use signed_data::{
     RSA_PSS_2048_8192_SHA384_LEGACY_KEY, RSA_PSS_2048_8192_SHA512_LEGACY_KEY,
     DILITHIUM2,
 };
+mod kem;
+pub use kem::*;
 
 pub use time::Time;
 

@@ -85,6 +85,9 @@ pub enum Error {
     /// The signature algorithm for a signature is not in the set of supported
     /// signature algorithms given.
     UnsupportedSignatureAlgorithm,
+
+    /// Kem goes brrr
+    KEMFailure,
 }
 
 impl fmt::Display for Error {
