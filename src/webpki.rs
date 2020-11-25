@@ -172,7 +172,8 @@ impl<'a> EndEntityCert<'a> {
     }
 
     /// Decapsulate
-    pub fn decapsulate(&self, private_key_der: untrusted::Input, ciphertext: untrusted::Input) -> Result<Vec<u8>, Error> {
+    pub fn decapsulate(&self, private_key_der: &[u8], ciphertext: &[u8]) -> Result<Vec<u8>, Error> {
+        let private_key_der = untrusted::Input::from(private_key_der);
         let spki = signed_data::parse_spki_value(self.inner.spki.value())?;
         let algorithm = key_id_to_kem(spki.algorithm_id_value)?;
         let private_key = private_key_der.read_all(Error::BadDER, |private_key_der| {
@@ -195,7 +196,7 @@ impl<'a> EndEntityCert<'a> {
         })?;
         let kem = oqs::kem::Kem::new(algorithm.kem).expect("algorithm disabled");
         let private_key = kem.secret_key_from_bytes(private_key.as_slice_less_safe()).unwrap();
-        decapsulate(algorithm, private_key, ciphertext)
+        decapsulate(algorithm, private_key, ciphertext.into())
     }
 
     /// Encapsulate
