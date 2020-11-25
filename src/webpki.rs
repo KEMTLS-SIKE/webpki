@@ -194,7 +194,7 @@ impl<'a> EndEntityCert<'a> {
             })
         })?;
         let kem = oqs::kem::Kem::new(algorithm.kem).expect("algorithm disabled");
-        let private_key = kem.secret_key_from_bytes(private_key.as_slice_less_safe());
+        let private_key = kem.secret_key_from_bytes(private_key.as_slice_less_safe()).unwrap();
         decapsulate(algorithm, private_key, ciphertext)
     }
 

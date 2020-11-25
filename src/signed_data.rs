@@ -166,11 +166,13 @@ pub(crate) fn verify_signature(
         },
         VerificationAlgorithm::Oqs(alg) => {
             let sigalg = oqs::sig::Sig::new(*alg).expect("algorithm disabled");
-            let pk = sigalg.public_key_from_bytes(spki.key_value.as_slice_less_safe());
-            let sig = sigalg.signature_from_bytes(signature.as_slice_less_safe());
+            let pk = sigalg.public_key_from_bytes(spki.key_value.as_slice_less_safe())
+                .ok_or(Error::UnsupportedSignatureAlgorithmForPublicKey)?;
+            let signature = sigalg.signature_from_bytes(signature.as_slice_less_safe())
+                .ok_or(Error::InvalidSignatureForPublicKey)?;
             sigalg
-            .verify(msg.as_slice_less_safe(), sig, pk)
-            .map_err(|_| Error::InvalidSignatureForPublicKey)
+                .verify(msg.as_slice_less_safe(), signature, pk)
+                .map_err(|_| Error::InvalidSignatureForPublicKey)
         }
     }
 }

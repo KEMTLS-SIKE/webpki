@@ -68,7 +68,7 @@ std = []
 [dependencies]
 ring = { version = "0.16.14", default-features = false, features = ["alloc"] }
 untrusted = "0.7.1"
-oqs = {version = "0.2.0", path = "/home/thom/git/phd/PQClean/oqs-rs/oqs"}
+oqs = "0.3.0"
 
 [dev-dependencies]
 base64 = "0.9.1"

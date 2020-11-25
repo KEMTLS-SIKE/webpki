@@ -24,12 +24,13 @@ pub fn decapsulate(
     alg: &KemAlgorithm, private_key: oqs::kem::SecretKeyRef, ciphertext: untrusted::Input,
 ) -> Result<Vec<u8>, error::Error> {
     let kem = oqs::kem::Kem::new(alg.kem).expect("algorithm disabled");
-    let ciphertext = kem.ciphertext_from_bytes(ciphertext.as_slice_less_safe());
+    let ciphertext = kem.ciphertext_from_bytes(ciphertext.as_slice_less_safe())
+        .ok_or(error::Error::KEMFailure)?;
     kem.decapsulate(private_key, ciphertext)
-    .map(|ss| ss.into_vec())
-    .map_err(|_| {
-        error::Error::KEMFailure
-    })
+        .map(|ss| ss.into_vec())
+        .map_err(|_| {
+            error::Error::KEMFailure
+        })
 }
 
 /// Encapsulate
@@ -37,7 +38,8 @@ pub fn encapsulate(
     alg: &KemAlgorithm, public_key: untrusted::Input,
 ) -> Result<(oqs::kem::Ciphertext, oqs::kem::SharedSecret), error::Error> {
     let kem = oqs::kem::Kem::new(alg.kem).expect("algorithm disabled");
-    let public_key = kem.public_key_from_bytes(public_key.as_slice_less_safe());
+    let public_key = kem.public_key_from_bytes(public_key.as_slice_less_safe())
+        .ok_or(error::Error::KEMFailure)?;
     kem.encapsulate(public_key).map_err(|_| error::Error::KEMFailure)
 }
 
