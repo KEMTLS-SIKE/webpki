@@ -158,7 +158,7 @@ impl<'a> EndEntityCert<'a> {
     /// Check if this is a KEM cert by checking if we know how to get the public key
     pub fn is_kem_cert(&self) -> bool {
         signed_data::parse_spki_value(self.inner.spki.value()).map(
-            |spki| key_id_to_kem(spki.algorithm_id_value)).is_ok()
+             |spki| key_id_to_kem(spki.algorithm_id_value).is_ok()).unwrap()
     }
 
     /// Get the public key data from the certificate
