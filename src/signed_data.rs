@@ -13,8 +13,8 @@
 // OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 use crate::{der, Error};
-use ring::signature;
 use oqs;
+use ring::signature;
 
 /// X.509 certificates and related items that are signed are almost always
 /// encoded in the format "tbs||signatureAlgorithm||signature". This structure
@@ -156,24 +156,22 @@ pub(crate) fn verify_signature(
         return Err(Error::UnsupportedSignatureAlgorithmForPublicKey);
     }
     match signature_alg.verification_alg {
-        VerificationAlgorithm::Ring(alg) => {
-            signature::UnparsedPublicKey::new(
-                alg,
-                spki.key_value.as_slice_less_safe(),
-            )
-            .verify(msg.as_slice_less_safe(), signature.as_slice_less_safe())
-            .map_err(|_| Error::InvalidSignatureForPublicKey)
-        },
+        VerificationAlgorithm::Ring(alg) =>
+            signature::UnparsedPublicKey::new(alg, spki.key_value.as_slice_less_safe())
+                .verify(msg.as_slice_less_safe(), signature.as_slice_less_safe())
+                .map_err(|_| Error::InvalidSignatureForPublicKey),
         VerificationAlgorithm::Oqs(alg) => {
             let sigalg = oqs::sig::Sig::new(*alg).expect("algorithm disabled");
-            let pk = sigalg.public_key_from_bytes(spki.key_value.as_slice_less_safe())
+            let pk = sigalg
+                .public_key_from_bytes(spki.key_value.as_slice_less_safe())
                 .ok_or(Error::UnsupportedSignatureAlgorithmForPublicKey)?;
-            let signature = sigalg.signature_from_bytes(signature.as_slice_less_safe())
+            let signature = sigalg
+                .signature_from_bytes(signature.as_slice_less_safe())
                 .ok_or(Error::InvalidSignatureForPublicKey)?;
             sigalg
                 .verify(msg.as_slice_less_safe(), signature, pk)
                 .map_err(|_| Error::InvalidSignatureForPublicKey)
-        }
+        },
     }
 }
 

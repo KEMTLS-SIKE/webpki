@@ -155,16 +155,18 @@ impl<'a> EndEntityCert<'a> {
         )
     }
 
-    /// Check if this is a KEM cert by checking if we know how to get the public key
+    /// Check if this is a KEM cert by checking if we know how to get the public
+    /// key
     pub fn is_kem_cert(&self) -> bool {
-        signed_data::parse_spki_value(self.inner.spki.value()).map(
-             |spki| key_id_to_kem(spki.algorithm_id_value).is_ok()).unwrap()
+        signed_data::parse_spki_value(self.inner.spki.value())
+            .map(|spki| key_id_to_kem(spki.algorithm_id_value).is_ok())
+            .unwrap()
     }
 
     /// Get the public key data from the certificate
     ///
     /// Returns algorithm id and key value
-    pub fn public_key(&'a self) -> Result<(&'static KemAlgorithm, untrusted::Input<'a>), Error>{
+    pub fn public_key(&'a self) -> Result<(&'static KemAlgorithm, untrusted::Input<'a>), Error> {
         let spki = signed_data::parse_spki_value(self.inner.spki.value())?;
         let algorithm = key_id_to_kem(spki.algorithm_id_value)?;
         let key_value = spki.key_value;
@@ -185,9 +187,12 @@ impl<'a> EndEntityCert<'a> {
                     Ok(())
                 })?;
                 //let m2 = data.mark();
-                //let privkey_algorithm = untrusted::Input::from(&data.get_input_between_marks(m1, m2).unwrap().as_slice_less_safe()[2..]);
-                //let privkey_algorithm = key_id_to_kem(privkey_algorithm)?;
-                //assert_eq!(privkey_algorithm, algorithm, "Public key doesn't match private key in OID");
+                //let privkey_algorithm =
+                // untrusted::Input::from(&data.get_input_between_marks(m1,
+                // m2).unwrap().as_slice_less_safe()[2..]);
+                // let privkey_algorithm = key_id_to_kem(privkey_algorithm)?;
+                //assert_eq!(privkey_algorithm, algorithm, "Public key doesn't match private
+                // key in OID");
 
                 der::nested_mut(data, der::Tag::OctetString, Error::BadDER, |data| {
                     der::expect_tag_and_get_value(data, der::Tag::OctetString)
@@ -195,7 +200,9 @@ impl<'a> EndEntityCert<'a> {
             })
         })?;
         let kem = oqs::kem::Kem::new(algorithm.kem).expect("algorithm disabled");
-        let private_key = kem.secret_key_from_bytes(private_key.as_slice_less_safe()).unwrap();
+        let private_key = kem
+            .secret_key_from_bytes(private_key.as_slice_less_safe())
+            .unwrap();
         decapsulate(algorithm, private_key, ciphertext.into())
     }
 
