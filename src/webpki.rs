@@ -174,34 +174,14 @@ impl<'a> EndEntityCert<'a> {
     }
 
     /// Decapsulate
-    pub fn decapsulate(&self, private_key_der: &[u8], ciphertext: &[u8]) -> Result<Vec<u8>, Error> {
-        let private_key_der = untrusted::Input::from(private_key_der);
+    pub fn decapsulate(&self, private_key: &[u8], ciphertext: &[u8]) -> Result<Vec<u8>, Error> {
+        // let private_key_der = untrusted::Input::from(private_key_der);
         let spki = signed_data::parse_spki_value(self.inner.spki.value())?;
         let algorithm = key_id_to_kem(spki.algorithm_id_value)?;
-        let private_key = private_key_der.read_all(Error::BadDER, |private_key_der| {
-            der::nested_mut(private_key_der, der::Tag::Sequence, Error::BadDER, |data| {
-                let _ = der::small_nonnegative_integer(data)?;
-                //let m1 = data.mark();
-                der::nested_mut(data, der::Tag::Sequence, Error::BadDER, |keyinfo| {
-                    let _ = der::expect_tag_and_get_value(keyinfo, der::Tag::OID)?;
-                    Ok(())
-                })?;
-                //let m2 = data.mark();
-                //let privkey_algorithm =
-                // untrusted::Input::from(&data.get_input_between_marks(m1,
-                // m2).unwrap().as_slice_less_safe()[2..]);
-                // let privkey_algorithm = key_id_to_kem(privkey_algorithm)?;
-                //assert_eq!(privkey_algorithm, algorithm, "Public key doesn't match private
-                // key in OID");
-
-                der::nested_mut(data, der::Tag::OctetString, Error::BadDER, |data| {
-                    der::expect_tag_and_get_value(data, der::Tag::OctetString)
-                })
-            })
-        })?;
+        // this is already parsed in rustls
         let kem = oqs::kem::Kem::new(algorithm.kem).expect("algorithm disabled");
         let private_key = kem
-            .secret_key_from_bytes(private_key.as_slice_less_safe())
+            .secret_key_from_bytes(private_key)
             .unwrap();
         decapsulate(algorithm, private_key, ciphertext.into())
     }
@@ -211,16 +191,6 @@ impl<'a> EndEntityCert<'a> {
         let spki = signed_data::parse_spki_value(self.inner.spki.value())?;
         let algorithm = key_id_to_kem(spki.algorithm_id_value)?;
         encapsulate(algorithm, spki.key_value)
-    }
-
-    /// Convert DER to the private key that belongs to this certificate.
-    pub fn get_private_key(&self, encoded: &'a [u8]) -> Option<&'a [u8]> {
-        let spki = signed_data::parse_spki_value(self.inner.spki.value());
-        if let Ok(spki) = spki {
-            Some(&encoded[0..spki.algorithm_id_value.len()])
-        } else {
-            None
-        }
     }
 
     /// Verifies that the end-entity certificate is valid for use by a TLS
