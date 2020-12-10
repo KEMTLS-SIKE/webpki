@@ -1,6 +1,17 @@
 import subprocess
 import os
 
+from typing import Iterable, Any, Tuple
+
+def signal_last(it: Iterable[Any]) -> Iterable[Tuple[bool, Any]]:
+    iterable = iter(it)
+    ret_var = next(iterable)
+    for val in iterable:
+        yield False, ret_var
+        ret_var = val
+    yield True, ret_var
+
+
 # sigs
 from algorithms import signs, kems, get_oid
 
@@ -60,9 +71,9 @@ pub static {alg.upper()}: KemAlgorithm = KemAlgorithm {{
 """)
 
 with open('generated/get_kem.rs', 'w') as fh:
-    for alg, oqsalg in kems:
+    for last, (alg, oqsalg) in signal_last(kems):
         fh.write(f"""
         if check_key_id(&{alg.upper()}, algorithm_id) {{
             return Ok(&{alg.upper()});
-        }}
+        }} {'' if last else 'else '}
 """)
