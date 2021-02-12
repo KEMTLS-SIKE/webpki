@@ -169,16 +169,6 @@ pub static NTRUHPS2048509: KemAlgorithm = KemAlgorithm {
     kem: oqs::kem::Algorithm::NtruHps2048509,
 };
 
-const SABER_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-saber.der")),
-};
-
-/// saber KEM
-pub static SABER: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: SABER_ID,
-    kem: oqs::kem::Algorithm::Saber,
-};
-
 const SIDHP434_ID: AlgorithmIdentifier = AlgorithmIdentifier {
     asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-SidhP434.der")),
 };

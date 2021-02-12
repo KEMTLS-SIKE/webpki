@@ -68,7 +68,7 @@ std = []
 [dependencies]
 ring = { version = "0.16.14", default-features = false, features = ["alloc"] }
 untrusted = "0.7.1"
-oqs = "0.3.0"
+oqs = { version = "0.5.0", git = "https://github.com/open-quantum-safe/liboqs-rust", branch = "main" }
 
 [dev-dependencies]
 base64 = "0.9.1"
@@ -90,4 +90,4 @@ debug-assertions = false
 codegen-units = 1
 
 [patch.crates-io]
-ring = { path = "../ring", git = "https://github.com/thomwiggers/ring.git", branch = "longer-der" }
+ring = { git = "https://github.com/thomwiggers/ring.git", branch = "longer-der" }

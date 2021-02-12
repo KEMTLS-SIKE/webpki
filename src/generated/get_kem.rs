@@ -67,10 +67,6 @@
             return Ok(&NTRUHPS2048509);
         } else 
 
-        if check_key_id(&SABER, algorithm_id) {
-            return Ok(&SABER);
-        } else 
-
         if check_key_id(&SIDHP434, algorithm_id) {
             return Ok(&SIDHP434);
         } 
