@@ -129,6 +129,11 @@ impl<'a> EndEntityCert<'a> {
         })
     }
 
+    /// Get the subject CN from this cert
+    pub fn subject(&self) -> &[u8] {
+        self.inner.subject.as_slice_less_safe()
+    }
+
     /// Verifies that the end-entity certificate is valid for use by a TLS
     /// server.
     ///
