@@ -16,6 +16,7 @@ use crate::{der, Error};
 use oqs;
 use ring::signature;
 
+
 /// X.509 certificates and related items that are signed are almost always
 /// encoded in the format "tbs||signatureAlgorithm||signature". This structure
 /// captures this pattern.
@@ -172,6 +173,14 @@ pub(crate) fn verify_signature(
                 .verify(msg.as_slice_less_safe(), signature, pk)
                 .map_err(|_| Error::InvalidSignatureForPublicKey)
         },
+        VerificationAlgorithm::Xmss => {
+            use xmss_rs::verify;
+            if verify(msg.as_slice_less_safe(), signature.as_slice_less_safe(), spki.key_value.as_slice_less_safe()) {
+                Ok(())
+            } else {
+                return Err(Error::InvalidSignatureForPublicKey)
+            }
+        },
     }
 }
 
@@ -198,6 +207,7 @@ pub(crate) fn parse_spki_value(input: untrusted::Input) -> Result<SubjectPublicK
 enum VerificationAlgorithm {
     Ring(&'static dyn signature::VerificationAlgorithm),
     Oqs(&'static oqs::sig::Algorithm),
+    Xmss,
 }
 
 /// A signature algorithm.
@@ -355,6 +365,19 @@ const ED_25519: AlgorithmIdentifier = AlgorithmIdentifier {
 };
 
 include!("generated/oqs_sigschemes.rs");
+
+
+const XMSS_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("data/alg-xmss.der")),
+};
+
+/// xmss signatures
+pub static XMSS: SignatureAlgorithm = SignatureAlgorithm {
+    public_key_alg_id: XMSS_ID,
+    signature_alg_id: XMSS_ID,
+    verification_alg: VerificationAlgorithm::Xmss,
+};
+
 
 #[cfg(test)]
 mod tests {

@@ -28,6 +28,8 @@ for alg, oqsalg in signs:
 
 with open('generated/oqs_sigschemes.rs', 'w') as fh:
     for alg, oqsalg in signs:
+        if alg == "xmss":
+            continue
         fh.write(f"""
 const {alg.upper()}_ID: AlgorithmIdentifier = AlgorithmIdentifier {{
     asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-{alg}.der")),

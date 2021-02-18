@@ -48,3 +48,4 @@ pub use signed_data::SPHINCSSHAKE256256FSIMPLE;
 pub use signed_data::SPHINCSSHAKE256256FROBUST;
 pub use signed_data::SPHINCSSHAKE256256SSIMPLE;
 pub use signed_data::SPHINCSSHAKE256256SROBUST;
+pub use signed_data::XMSS;

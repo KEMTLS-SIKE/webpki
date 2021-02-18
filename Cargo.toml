@@ -69,6 +69,7 @@ std = []
 ring = { version = "0.16.14", default-features = false, features = ["alloc"] }
 untrusted = "0.7.1"
 oqs = { version = "0.5.0", git = "https://github.com/open-quantum-safe/liboqs-rust", branch = "main" }
+xmss-rs = { git = "https://github.com/thomwiggers/xmss-rs.git" }
 
 [dev-dependencies]
 base64 = "0.9.1"
