@@ -11,44 +11,44 @@
             return Ok(&KYBER1024);
         } else 
 
-        if check_key_id(&MCELIECE348864, algorithm_id) {
-            return Ok(&MCELIECE348864);
+        if check_key_id(&CLASSICMCELIECE348864, algorithm_id) {
+            return Ok(&CLASSICMCELIECE348864);
         } else 
 
-        if check_key_id(&MCELIECE348864F, algorithm_id) {
-            return Ok(&MCELIECE348864F);
+        if check_key_id(&CLASSICMCELIECE348864F, algorithm_id) {
+            return Ok(&CLASSICMCELIECE348864F);
         } else 
 
-        if check_key_id(&MCELIECE460896, algorithm_id) {
-            return Ok(&MCELIECE460896);
+        if check_key_id(&CLASSICMCELIECE460896, algorithm_id) {
+            return Ok(&CLASSICMCELIECE460896);
         } else 
 
-        if check_key_id(&MCELIECE460896F, algorithm_id) {
-            return Ok(&MCELIECE460896F);
+        if check_key_id(&CLASSICMCELIECE460896F, algorithm_id) {
+            return Ok(&CLASSICMCELIECE460896F);
         } else 
 
-        if check_key_id(&MCELIECE6688128, algorithm_id) {
-            return Ok(&MCELIECE6688128);
+        if check_key_id(&CLASSICMCELIECE6688128, algorithm_id) {
+            return Ok(&CLASSICMCELIECE6688128);
         } else 
 
-        if check_key_id(&MCELIECE6688128F, algorithm_id) {
-            return Ok(&MCELIECE6688128F);
+        if check_key_id(&CLASSICMCELIECE6688128F, algorithm_id) {
+            return Ok(&CLASSICMCELIECE6688128F);
         } else 
 
-        if check_key_id(&MCELIECE6960119, algorithm_id) {
-            return Ok(&MCELIECE6960119);
+        if check_key_id(&CLASSICMCELIECE6960119, algorithm_id) {
+            return Ok(&CLASSICMCELIECE6960119);
         } else 
 
-        if check_key_id(&MCELIECE6960119F, algorithm_id) {
-            return Ok(&MCELIECE6960119F);
+        if check_key_id(&CLASSICMCELIECE6960119F, algorithm_id) {
+            return Ok(&CLASSICMCELIECE6960119F);
         } else 
 
-        if check_key_id(&MCELIECE8192128, algorithm_id) {
-            return Ok(&MCELIECE8192128);
+        if check_key_id(&CLASSICMCELIECE8192128, algorithm_id) {
+            return Ok(&CLASSICMCELIECE8192128);
         } else 
 
-        if check_key_id(&MCELIECE8192128F, algorithm_id) {
-            return Ok(&MCELIECE8192128F);
+        if check_key_id(&CLASSICMCELIECE8192128F, algorithm_id) {
+            return Ok(&CLASSICMCELIECE8192128F);
         } else 
 
         if check_key_id(&LIGHTSABER, algorithm_id) {
@@ -79,28 +79,28 @@
             return Ok(&NTRUHRSS701);
         } else 
 
-        if check_key_id(&NTRULPR653, algorithm_id) {
-            return Ok(&NTRULPR653);
+        if check_key_id(&NTRUPRIMENTRULPR653, algorithm_id) {
+            return Ok(&NTRUPRIMENTRULPR653);
         } else 
 
-        if check_key_id(&NTRULPR761, algorithm_id) {
-            return Ok(&NTRULPR761);
+        if check_key_id(&NTRUPRIMENTRULPR761, algorithm_id) {
+            return Ok(&NTRUPRIMENTRULPR761);
         } else 
 
-        if check_key_id(&NTRULPR857, algorithm_id) {
-            return Ok(&NTRULPR857);
+        if check_key_id(&NTRUPRIMENTRULPR857, algorithm_id) {
+            return Ok(&NTRUPRIMENTRULPR857);
         } else 
 
-        if check_key_id(&SNTRUP653, algorithm_id) {
-            return Ok(&SNTRUP653);
+        if check_key_id(&NTRUPRIMESNTRUP653, algorithm_id) {
+            return Ok(&NTRUPRIMESNTRUP653);
         } else 
 
-        if check_key_id(&SNTRUP761, algorithm_id) {
-            return Ok(&SNTRUP761);
+        if check_key_id(&NTRUPRIMESNTRUP761, algorithm_id) {
+            return Ok(&NTRUPRIMESNTRUP761);
         } else 
 
-        if check_key_id(&SNTRUP857, algorithm_id) {
-            return Ok(&SNTRUP857);
+        if check_key_id(&NTRUPRIMESNTRUP857, algorithm_id) {
+            return Ok(&NTRUPRIMESNTRUP857);
         } else 
 
         if check_key_id(&FRODOKEM640AES, algorithm_id) {
@@ -165,4 +165,16 @@
 
         if check_key_id(&BIKEL3FO, algorithm_id) {
             return Ok(&BIKEL3FO);
+        } else 
+
+        if check_key_id(&HQC128, algorithm_id) {
+            return Ok(&HQC128);
+        } else 
+
+        if check_key_id(&HQC192, algorithm_id) {
+            return Ok(&HQC192);
+        } else 
+
+        if check_key_id(&HQC256, algorithm_id) {
+            return Ok(&HQC256);
         } 

@@ -29,103 +29,103 @@ pub static KYBER1024: KemAlgorithm = KemAlgorithm {
     kem: oqs::kem::Algorithm::Kyber1024,
 };
 
-const MCELIECE348864_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-mceliece348864.der")),
+const CLASSICMCELIECE348864_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-classicmceliece348864.der")),
 };
 
-/// mceliece348864 KEM
-pub static MCELIECE348864: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: MCELIECE348864_ID,
+/// classicmceliece348864 KEM
+pub static CLASSICMCELIECE348864: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: CLASSICMCELIECE348864_ID,
     kem: oqs::kem::Algorithm::ClassicMcEliece348864,
 };
 
-const MCELIECE348864F_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-mceliece348864f.der")),
+const CLASSICMCELIECE348864F_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-classicmceliece348864f.der")),
 };
 
-/// mceliece348864f KEM
-pub static MCELIECE348864F: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: MCELIECE348864F_ID,
+/// classicmceliece348864f KEM
+pub static CLASSICMCELIECE348864F: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: CLASSICMCELIECE348864F_ID,
     kem: oqs::kem::Algorithm::ClassicMcEliece348864f,
 };
 
-const MCELIECE460896_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-mceliece460896.der")),
+const CLASSICMCELIECE460896_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-classicmceliece460896.der")),
 };
 
-/// mceliece460896 KEM
-pub static MCELIECE460896: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: MCELIECE460896_ID,
+/// classicmceliece460896 KEM
+pub static CLASSICMCELIECE460896: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: CLASSICMCELIECE460896_ID,
     kem: oqs::kem::Algorithm::ClassicMcEliece460896,
 };
 
-const MCELIECE460896F_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-mceliece460896f.der")),
+const CLASSICMCELIECE460896F_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-classicmceliece460896f.der")),
 };
 
-/// mceliece460896f KEM
-pub static MCELIECE460896F: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: MCELIECE460896F_ID,
+/// classicmceliece460896f KEM
+pub static CLASSICMCELIECE460896F: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: CLASSICMCELIECE460896F_ID,
     kem: oqs::kem::Algorithm::ClassicMcEliece460896f,
 };
 
-const MCELIECE6688128_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-mceliece6688128.der")),
+const CLASSICMCELIECE6688128_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-classicmceliece6688128.der")),
 };
 
-/// mceliece6688128 KEM
-pub static MCELIECE6688128: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: MCELIECE6688128_ID,
+/// classicmceliece6688128 KEM
+pub static CLASSICMCELIECE6688128: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: CLASSICMCELIECE6688128_ID,
     kem: oqs::kem::Algorithm::ClassicMcEliece6688128,
 };
 
-const MCELIECE6688128F_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-mceliece6688128f.der")),
+const CLASSICMCELIECE6688128F_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-classicmceliece6688128f.der")),
 };
 
-/// mceliece6688128f KEM
-pub static MCELIECE6688128F: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: MCELIECE6688128F_ID,
+/// classicmceliece6688128f KEM
+pub static CLASSICMCELIECE6688128F: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: CLASSICMCELIECE6688128F_ID,
     kem: oqs::kem::Algorithm::ClassicMcEliece6688128f,
 };
 
-const MCELIECE6960119_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-mceliece6960119.der")),
+const CLASSICMCELIECE6960119_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-classicmceliece6960119.der")),
 };
 
-/// mceliece6960119 KEM
-pub static MCELIECE6960119: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: MCELIECE6960119_ID,
+/// classicmceliece6960119 KEM
+pub static CLASSICMCELIECE6960119: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: CLASSICMCELIECE6960119_ID,
     kem: oqs::kem::Algorithm::ClassicMcEliece6960119,
 };
 
-const MCELIECE6960119F_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-mceliece6960119f.der")),
+const CLASSICMCELIECE6960119F_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-classicmceliece6960119f.der")),
 };
 
-/// mceliece6960119f KEM
-pub static MCELIECE6960119F: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: MCELIECE6960119F_ID,
+/// classicmceliece6960119f KEM
+pub static CLASSICMCELIECE6960119F: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: CLASSICMCELIECE6960119F_ID,
     kem: oqs::kem::Algorithm::ClassicMcEliece6960119f,
 };
 
-const MCELIECE8192128_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-mceliece8192128.der")),
+const CLASSICMCELIECE8192128_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-classicmceliece8192128.der")),
 };
 
-/// mceliece8192128 KEM
-pub static MCELIECE8192128: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: MCELIECE8192128_ID,
+/// classicmceliece8192128 KEM
+pub static CLASSICMCELIECE8192128: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: CLASSICMCELIECE8192128_ID,
     kem: oqs::kem::Algorithm::ClassicMcEliece8192128,
 };
 
-const MCELIECE8192128F_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-mceliece8192128f.der")),
+const CLASSICMCELIECE8192128F_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-classicmceliece8192128f.der")),
 };
 
-/// mceliece8192128f KEM
-pub static MCELIECE8192128F: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: MCELIECE8192128F_ID,
+/// classicmceliece8192128f KEM
+pub static CLASSICMCELIECE8192128F: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: CLASSICMCELIECE8192128F_ID,
     kem: oqs::kem::Algorithm::ClassicMcEliece8192128f,
 };
 
@@ -199,63 +199,63 @@ pub static NTRUHRSS701: KemAlgorithm = KemAlgorithm {
     kem: oqs::kem::Algorithm::NtruHrss701,
 };
 
-const NTRULPR653_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-ntrulpr653.der")),
+const NTRUPRIMENTRULPR653_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-ntruprimentrulpr653.der")),
 };
 
-/// ntrulpr653 KEM
-pub static NTRULPR653: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: NTRULPR653_ID,
+/// ntruprimentrulpr653 KEM
+pub static NTRUPRIMENTRULPR653: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: NTRUPRIMENTRULPR653_ID,
     kem: oqs::kem::Algorithm::NtruPrimeNtrulpr653,
 };
 
-const NTRULPR761_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-ntrulpr761.der")),
+const NTRUPRIMENTRULPR761_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-ntruprimentrulpr761.der")),
 };
 
-/// ntrulpr761 KEM
-pub static NTRULPR761: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: NTRULPR761_ID,
+/// ntruprimentrulpr761 KEM
+pub static NTRUPRIMENTRULPR761: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: NTRUPRIMENTRULPR761_ID,
     kem: oqs::kem::Algorithm::NtruPrimeNtrulpr761,
 };
 
-const NTRULPR857_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-ntrulpr857.der")),
+const NTRUPRIMENTRULPR857_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-ntruprimentrulpr857.der")),
 };
 
-/// ntrulpr857 KEM
-pub static NTRULPR857: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: NTRULPR857_ID,
+/// ntruprimentrulpr857 KEM
+pub static NTRUPRIMENTRULPR857: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: NTRUPRIMENTRULPR857_ID,
     kem: oqs::kem::Algorithm::NtruPrimeNtrulpr857,
 };
 
-const SNTRUP653_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-sntrup653.der")),
+const NTRUPRIMESNTRUP653_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-ntruprimesntrup653.der")),
 };
 
-/// sntrup653 KEM
-pub static SNTRUP653: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: SNTRUP653_ID,
+/// ntruprimesntrup653 KEM
+pub static NTRUPRIMESNTRUP653: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: NTRUPRIMESNTRUP653_ID,
     kem: oqs::kem::Algorithm::NtruPrimeSntrup653,
 };
 
-const SNTRUP761_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-sntrup761.der")),
+const NTRUPRIMESNTRUP761_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-ntruprimesntrup761.der")),
 };
 
-/// sntrup761 KEM
-pub static SNTRUP761: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: SNTRUP761_ID,
+/// ntruprimesntrup761 KEM
+pub static NTRUPRIMESNTRUP761: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: NTRUPRIMESNTRUP761_ID,
     kem: oqs::kem::Algorithm::NtruPrimeSntrup761,
 };
 
-const SNTRUP857_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-sntrup857.der")),
+const NTRUPRIMESNTRUP857_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-ntruprimesntrup857.der")),
 };
 
-/// sntrup857 KEM
-pub static SNTRUP857: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: SNTRUP857_ID,
+/// ntruprimesntrup857 KEM
+pub static NTRUPRIMESNTRUP857: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: NTRUPRIMESNTRUP857_ID,
     kem: oqs::kem::Algorithm::NtruPrimeSntrup857,
 };
 
@@ -417,4 +417,34 @@ const BIKEL3FO_ID: AlgorithmIdentifier = AlgorithmIdentifier {
 pub static BIKEL3FO: KemAlgorithm = KemAlgorithm {
     public_key_alg_id: BIKEL3FO_ID,
     kem: oqs::kem::Algorithm::BikeL3Fo,
+};
+
+const HQC128_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-hqc128.der")),
+};
+
+/// hqc128 KEM
+pub static HQC128: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: HQC128_ID,
+    kem: oqs::kem::Algorithm::Hqc128,
+};
+
+const HQC192_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-hqc192.der")),
+};
+
+/// hqc192 KEM
+pub static HQC192: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: HQC192_ID,
+    kem: oqs::kem::Algorithm::Hqc192,
+};
+
+const HQC256_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-hqc256.der")),
+};
+
+/// hqc256 KEM
+pub static HQC256: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: HQC256_ID,
+    kem: oqs::kem::Algorithm::Hqc256,
 };
