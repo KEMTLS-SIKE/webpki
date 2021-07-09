@@ -1,5 +1,6 @@
 import subprocess
 import os
+import re
 
 from typing import Iterable, Any, Tuple
 
@@ -13,7 +14,7 @@ def signal_last(it: Iterable[Any]) -> Iterable[Tuple[bool, Any]]:
 
 
 # sigs
-from algorithms import signs, kems, get_oid
+from algorithms import signs, kems, nikes, get_oid
 
 for alg, oqsalg in signs:
     input_str = f"OBJECT_IDENTIFIER {{ {get_oid(alg)} }}\n"
@@ -74,6 +75,40 @@ pub static {alg.upper()}: KemAlgorithm = KemAlgorithm {{
 
 with open('generated/get_kem.rs', 'w') as fh:
     for last, (alg, oqsalg) in signal_last(kems):
+        fh.write(f"""
+        if check_key_id(&{alg.upper()}, algorithm_id) {{
+            return Ok(&{alg.upper()});
+        }} {'' if last else 'else '}
+""")
+
+for alg in nikes:
+    input_str = f"OBJECT_IDENTIFIER {{ {get_oid(alg)} }}\n"
+
+    subprocess.run(
+        ["../../mk-cert/ascii2der", "-o", f"data/alg-{alg}.der"],
+        input=input_str.encode(),
+        check=True,
+    )
+    subprocess.run(["git", "add", f"data/alg-{alg}.der"], check=True)
+
+
+with open('generated/nikes.rs', 'w') as fh:
+    for alg in nikes:
+        algid = alg.replace("csidh", "CSIDH")
+        fh.write(f"""
+const {alg.upper()}_ID: AlgorithmIdentifier = AlgorithmIdentifier {{
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-{alg}.der")),
+}};
+
+/// {alg} NIKE
+pub static {alg.upper()}: NikeAlgorithm = NikeAlgorithm {{
+    public_key_alg_id: {alg.upper()}_ID,
+    alg: secsidh::Algorithm::{algid},
+}};
+""")
+
+with open('generated/get_nike.rs', 'w') as fh:
+    for last, alg in signal_last(nikes):
         fh.write(f"""
         if check_key_id(&{alg.upper()}, algorithm_id) {{
             return Ok(&{alg.upper()});

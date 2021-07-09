@@ -44,7 +44,7 @@ pub fn encapsulate(
 }
 
 /// check if the kem is correct
-pub fn check_key_id(kem: &KemAlgorithm, encoded: untrusted::Input) -> bool {
+fn check_key_id(kem: &KemAlgorithm, encoded: untrusted::Input) -> bool {
     kem.public_key_alg_id.matches_algorithm_id_value(encoded)
 }
 

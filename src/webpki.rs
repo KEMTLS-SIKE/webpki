@@ -76,6 +76,9 @@ include!("generated/oqs_sigschemes_use.rs");
 mod kem;
 pub use kem::*;
 
+mod nike;
+pub use nike::*;
+
 pub use time::Time;
 
 /// An end-entity certificate.
@@ -168,12 +171,30 @@ impl<'a> EndEntityCert<'a> {
             .unwrap()
     }
 
+    /// Check if this is a NIKE cert by checking if we know how to get the public
+    /// key
+    pub fn is_nike_cert(&self) -> bool {
+        signed_data::parse_spki_value(self.inner.spki.value())
+            .map(|spki| key_id_to_nike(spki.algorithm_id_value).is_ok())
+            .unwrap()
+    }
+
     /// Get the public key data from the certificate
     ///
     /// Returns algorithm id and key value
-    pub fn public_key(&'a self) -> Result<(&'static KemAlgorithm, untrusted::Input<'a>), Error> {
+    pub fn kem_public_key(&'a self) -> Result<(&'static KemAlgorithm, untrusted::Input<'a>), Error> {
         let spki = signed_data::parse_spki_value(self.inner.spki.value())?;
         let algorithm = key_id_to_kem(spki.algorithm_id_value)?;
+        let key_value = spki.key_value;
+        Ok((algorithm, key_value))
+    }
+
+    /// Get the public key data from the certificate
+    ///
+    /// Returns algorithm id and key value
+    pub fn nike_public_key(&'a self) -> Result<(&'static NikeAlgorithm, untrusted::Input<'a>), Error> {
+        let spki = signed_data::parse_spki_value(self.inner.spki.value())?;
+        let algorithm = key_id_to_nike(spki.algorithm_id_value)?;
         let key_value = spki.key_value;
         Ok((algorithm, key_value))
     }
@@ -196,6 +217,13 @@ impl<'a> EndEntityCert<'a> {
         let spki = signed_data::parse_spki_value(self.inner.spki.value())?;
         let algorithm = key_id_to_kem(spki.algorithm_id_value)?;
         encapsulate(algorithm, spki.key_value)
+    }
+
+    /// Derive shared secret (NIKE/OPTLS) against this certificate
+    pub fn derive(&self, private_key: &[u8]) -> Result<Vec<u8>, Error> {
+        let spki = signed_data::parse_spki_value(self.inner.spki.value())?;
+        let algorithm = key_id_to_nike(spki.algorithm_id_value)?;
+        derive(algorithm, spki.key_value, private_key)
     }
 
     /// Verifies that the end-entity certificate is valid for use by a TLS
