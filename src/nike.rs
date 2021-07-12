@@ -9,6 +9,12 @@ pub struct NikeAlgorithm {
     pub alg: secsidh::Algorithm,
 }
 
+impl PartialEq for NikeAlgorithm {
+    fn eq(&self, other: &Self) -> bool {
+        self.alg == other.alg
+    }
+}
+
 /// Derive a shared secret from a network public key and our secret.
 pub fn derive(
     alg: &NikeAlgorithm,
