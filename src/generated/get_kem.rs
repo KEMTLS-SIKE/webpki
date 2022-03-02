@@ -159,12 +159,12 @@
             return Ok(&SIKEP751COMPRESSED);
         } else 
 
-        if check_key_id(&BIKEL1FO, algorithm_id) {
-            return Ok(&BIKEL1FO);
+        if check_key_id(&BIKEL1, algorithm_id) {
+            return Ok(&BIKEL1);
         } else 
 
-        if check_key_id(&BIKEL3FO, algorithm_id) {
-            return Ok(&BIKEL3FO);
+        if check_key_id(&BIKEL3, algorithm_id) {
+            return Ok(&BIKEL3);
         } else 
 
         if check_key_id(&HQC128, algorithm_id) {

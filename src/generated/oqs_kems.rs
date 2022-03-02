@@ -399,24 +399,24 @@ pub static SIKEP751COMPRESSED: KemAlgorithm = KemAlgorithm {
     kem: oqs::kem::Algorithm::SikeP751Compressed,
 };
 
-const BIKEL1FO_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-bikel1fo.der")),
+const BIKEL1_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-bikel1.der")),
 };
 
-/// bikel1fo KEM
-pub static BIKEL1FO: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: BIKEL1FO_ID,
-    kem: oqs::kem::Algorithm::BikeL1Fo,
+/// bikel1 KEM
+pub static BIKEL1: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: BIKEL1_ID,
+    kem: oqs::kem::Algorithm::BikeL1,
 };
 
-const BIKEL3FO_ID: AlgorithmIdentifier = AlgorithmIdentifier {
-    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-bikel3fo.der")),
+const BIKEL3_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-bikel3.der")),
 };
 
-/// bikel3fo KEM
-pub static BIKEL3FO: KemAlgorithm = KemAlgorithm {
-    public_key_alg_id: BIKEL3FO_ID,
-    kem: oqs::kem::Algorithm::BikeL3Fo,
+/// bikel3 KEM
+pub static BIKEL3: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: BIKEL3_ID,
+    kem: oqs::kem::Algorithm::BikeL3,
 };
 
 const HQC128_ID: AlgorithmIdentifier = AlgorithmIdentifier {

@@ -68,7 +68,7 @@ std = []
 [dependencies]
 ring = { version = "0.16.14", default-features = false, features = ["alloc"] }
 untrusted = "0.7.1"
-oqs = { version = "0.6.0", git = "https://github.com/thomwiggers/oqs-rs.git", branch = "dirty-oqs-avx2-rainbow", features = ["non_portable"] }
+oqs = { version = "*", git = "https://github.com/KEMTLS-SIKE/oqs-rs.git", branch = "master", features = ["non_portable"] }
 xmss-rs = { git = "https://github.com/thomwiggers/xmss-rs.git" }
 
 [dev-dependencies]
