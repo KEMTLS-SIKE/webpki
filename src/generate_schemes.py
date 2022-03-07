@@ -48,7 +48,7 @@ with open('generated/oqs_sigschemes_use.rs', 'w') as fh:
         fh.write(f"pub use signed_data::{alg.upper()};\n")
 
 ## KEMs
-for alg, oqsalg in kems:
+for alg, oqsalg, _ in kems:
     input_str = f"OBJECT_IDENTIFIER {{ {get_oid(alg)} }}\n"
 
     subprocess.run(
@@ -59,7 +59,7 @@ for alg, oqsalg in kems:
     subprocess.run(["git", "add", f"data/alg-{alg}.der"], check=True)
 
 with open('generated/oqs_kems.rs', 'w') as fh:
-    for alg, oqsalg in kems:
+    for alg, oqsalg, _ in kems:
         fh.write(f"""
 const {alg.upper()}_ID: AlgorithmIdentifier = AlgorithmIdentifier {{
     asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-{alg}.der")),
@@ -73,7 +73,7 @@ pub static {alg.upper()}: KemAlgorithm = KemAlgorithm {{
 """)
 
 with open('generated/get_kem.rs', 'w') as fh:
-    for last, (alg, oqsalg) in signal_last(kems):
+    for last, (alg, oqsalg, _) in signal_last(kems):
         fh.write(f"""
         if check_key_id(&{alg.upper()}, algorithm_id) {{
             return Ok(&{alg.upper()});

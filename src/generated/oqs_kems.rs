@@ -339,6 +339,16 @@ pub static SIKEP434COMPRESSED: KemAlgorithm = KemAlgorithm {
     kem: oqs::kem::Algorithm::SikeP434Compressed,
 };
 
+const SIKEP434COMPRESSEDASYNC_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-sikep434compressedasync.der")),
+};
+
+/// sikep434compressedasync KEM
+pub static SIKEP434COMPRESSEDASYNC: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: SIKEP434COMPRESSEDASYNC_ID,
+    kem: oqs::kem::Algorithm::SikeP434Compressed,
+};
+
 const SIKEP503_ID: AlgorithmIdentifier = AlgorithmIdentifier {
     asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-sikep503.der")),
 };
@@ -356,6 +366,16 @@ const SIKEP503COMPRESSED_ID: AlgorithmIdentifier = AlgorithmIdentifier {
 /// sikep503compressed KEM
 pub static SIKEP503COMPRESSED: KemAlgorithm = KemAlgorithm {
     public_key_alg_id: SIKEP503COMPRESSED_ID,
+    kem: oqs::kem::Algorithm::SikeP503Compressed,
+};
+
+const SIKEP503COMPRESSEDASYNC_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-sikep503compressedasync.der")),
+};
+
+/// sikep503compressedasync KEM
+pub static SIKEP503COMPRESSEDASYNC: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: SIKEP503COMPRESSEDASYNC_ID,
     kem: oqs::kem::Algorithm::SikeP503Compressed,
 };
 
@@ -379,6 +399,16 @@ pub static SIKEP610COMPRESSED: KemAlgorithm = KemAlgorithm {
     kem: oqs::kem::Algorithm::SikeP610Compressed,
 };
 
+const SIKEP610COMPRESSEDASYNC_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-sikep610compressedasync.der")),
+};
+
+/// sikep610compressedasync KEM
+pub static SIKEP610COMPRESSEDASYNC: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: SIKEP610COMPRESSEDASYNC_ID,
+    kem: oqs::kem::Algorithm::SikeP610Compressed,
+};
+
 const SIKEP751_ID: AlgorithmIdentifier = AlgorithmIdentifier {
     asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-sikep751.der")),
 };
@@ -396,6 +426,16 @@ const SIKEP751COMPRESSED_ID: AlgorithmIdentifier = AlgorithmIdentifier {
 /// sikep751compressed KEM
 pub static SIKEP751COMPRESSED: KemAlgorithm = KemAlgorithm {
     public_key_alg_id: SIKEP751COMPRESSED_ID,
+    kem: oqs::kem::Algorithm::SikeP751Compressed,
+};
+
+const SIKEP751COMPRESSEDASYNC_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-sikep751compressedasync.der")),
+};
+
+/// sikep751compressedasync KEM
+pub static SIKEP751COMPRESSEDASYNC: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: SIKEP751COMPRESSEDASYNC_ID,
     kem: oqs::kem::Algorithm::SikeP751Compressed,
 };
 
