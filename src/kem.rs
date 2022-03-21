@@ -43,6 +43,20 @@ pub fn encapsulate(
         .map_err(|_| error::Error::KEMFailure)
 }
 
+/// Async Encapsulate
+pub fn async_encapsulate(
+    alg: &KemAlgorithm, public_key: untrusted::Input,
+) -> Result<(oqs::kem::Ciphertext, oqs::kem::SharedSecret), error::Error> {
+    eprintln!("Async decaps!!");
+
+    let kem = oqs::kem::Kem::new(alg.kem).expect("algorithm disabled");
+    let public_key = kem
+        .public_key_from_bytes(public_key.as_slice_less_safe())
+        .ok_or(error::Error::KEMFailure)?;
+    kem.async_encapsulate(public_key)
+        .map_err(|_| error::Error::KEMFailure)
+}
+
 /// check if the kem is correct
 pub fn check_key_id(kem: &KemAlgorithm, encoded: untrusted::Input) -> bool {
     kem.public_key_alg_id.matches_algorithm_id_value(encoded)

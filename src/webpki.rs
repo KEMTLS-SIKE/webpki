@@ -198,6 +198,13 @@ impl<'a> EndEntityCert<'a> {
         encapsulate(algorithm, spki.key_value)
     }
 
+    /// Async Encapsulate
+    pub fn async_encapsulate(&self) -> Result<(oqs::kem::Ciphertext, oqs::kem::SharedSecret), Error> {
+        let spki = signed_data::parse_spki_value(self.inner.spki.value())?;
+        let algorithm = key_id_to_kem(spki.algorithm_id_value)?;
+        async_encapsulate(algorithm, spki.key_value)
+    }
+
     /// Verifies that the end-entity certificate is valid for use by a TLS
     /// client.
     ///
