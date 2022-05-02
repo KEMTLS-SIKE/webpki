@@ -135,12 +135,20 @@
             return Ok(&SIKEP434COMPRESSED);
         } else 
 
+        if check_key_id(&SIKEP434COMPRESSED1CCA, algorithm_id) {
+            return Ok(&SIKEP434COMPRESSED1CCA);
+        } else 
+
         if check_key_id(&SIKEP503, algorithm_id) {
             return Ok(&SIKEP503);
         } else 
 
         if check_key_id(&SIKEP503COMPRESSED, algorithm_id) {
             return Ok(&SIKEP503COMPRESSED);
+        } else 
+
+        if check_key_id(&SIKEP503COMPRESSED1CCA, algorithm_id) {
+            return Ok(&SIKEP503COMPRESSED1CCA);
         } else 
 
         if check_key_id(&SIKEP610, algorithm_id) {
@@ -151,12 +159,20 @@
             return Ok(&SIKEP610COMPRESSED);
         } else 
 
+        if check_key_id(&SIKEP610COMPRESSED1CCA, algorithm_id) {
+            return Ok(&SIKEP610COMPRESSED1CCA);
+        } else 
+
         if check_key_id(&SIKEP751, algorithm_id) {
             return Ok(&SIKEP751);
         } else 
 
         if check_key_id(&SIKEP751COMPRESSED, algorithm_id) {
             return Ok(&SIKEP751COMPRESSED);
+        } else 
+
+        if check_key_id(&SIKEP751COMPRESSED1CCA, algorithm_id) {
+            return Ok(&SIKEP751COMPRESSED1CCA);
         } else 
 
         if check_key_id(&BIKEL1, algorithm_id) {

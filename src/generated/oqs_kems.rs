@@ -339,6 +339,16 @@ pub static SIKEP434COMPRESSED: KemAlgorithm = KemAlgorithm {
     kem: oqs::kem::Algorithm::SikeP434Compressed,
 };
 
+const SIKEP434COMPRESSED1CCA_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-sikep434compressed1cca.der")),
+};
+
+/// sikep434compressed1cca KEM
+pub static SIKEP434COMPRESSED1CCA: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: SIKEP434COMPRESSED1CCA_ID,
+    kem: oqs::kem::Algorithm::SikeP434Compressed1CCA,
+};
+
 const SIKEP503_ID: AlgorithmIdentifier = AlgorithmIdentifier {
     asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-sikep503.der")),
 };
@@ -357,6 +367,16 @@ const SIKEP503COMPRESSED_ID: AlgorithmIdentifier = AlgorithmIdentifier {
 pub static SIKEP503COMPRESSED: KemAlgorithm = KemAlgorithm {
     public_key_alg_id: SIKEP503COMPRESSED_ID,
     kem: oqs::kem::Algorithm::SikeP503Compressed,
+};
+
+const SIKEP503COMPRESSED1CCA_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-sikep503compressed1cca.der")),
+};
+
+/// sikep503compressed1cca KEM
+pub static SIKEP503COMPRESSED1CCA: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: SIKEP503COMPRESSED1CCA_ID,
+    kem: oqs::kem::Algorithm::SikeP503Compressed1CCA,
 };
 
 const SIKEP610_ID: AlgorithmIdentifier = AlgorithmIdentifier {
@@ -379,6 +399,16 @@ pub static SIKEP610COMPRESSED: KemAlgorithm = KemAlgorithm {
     kem: oqs::kem::Algorithm::SikeP610Compressed,
 };
 
+const SIKEP610COMPRESSED1CCA_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-sikep610compressed1cca.der")),
+};
+
+/// sikep610compressed1cca KEM
+pub static SIKEP610COMPRESSED1CCA: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: SIKEP610COMPRESSED1CCA_ID,
+    kem: oqs::kem::Algorithm::SikeP610Compressed1CCA,
+};
+
 const SIKEP751_ID: AlgorithmIdentifier = AlgorithmIdentifier {
     asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-sikep751.der")),
 };
@@ -397,6 +427,16 @@ const SIKEP751COMPRESSED_ID: AlgorithmIdentifier = AlgorithmIdentifier {
 pub static SIKEP751COMPRESSED: KemAlgorithm = KemAlgorithm {
     public_key_alg_id: SIKEP751COMPRESSED_ID,
     kem: oqs::kem::Algorithm::SikeP751Compressed,
+};
+
+const SIKEP751COMPRESSED1CCA_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-sikep751compressed1cca.der")),
+};
+
+/// sikep751compressed1cca KEM
+pub static SIKEP751COMPRESSED1CCA: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: SIKEP751COMPRESSED1CCA_ID,
+    kem: oqs::kem::Algorithm::SikeP751Compressed1CCA,
 };
 
 const BIKEL1_ID: AlgorithmIdentifier = AlgorithmIdentifier {
