@@ -175,6 +175,10 @@
             return Ok(&SIKEP751COMPRESSED1CCA);
         } else 
 
+        if check_key_id(&CSIDHP512, algorithm_id) {
+            return Ok(&CSIDHP512);
+        } else 
+
         if check_key_id(&BIKEL1, algorithm_id) {
             return Ok(&BIKEL1);
         } else 

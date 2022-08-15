@@ -439,6 +439,16 @@ pub static SIKEP751COMPRESSED1CCA: KemAlgorithm = KemAlgorithm {
     kem: oqs::kem::Algorithm::SikeP751Compressed1CCA,
 };
 
+const CSIDHP512_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-csidhp512.der")),
+};
+
+/// csidhp512 KEM
+pub static CSIDHP512: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: CSIDHP512_ID,
+    kem: oqs::kem::Algorithm::CsidhP512,
+};
+
 const BIKEL1_ID: AlgorithmIdentifier = AlgorithmIdentifier {
     asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-bikel1.der")),
 };
