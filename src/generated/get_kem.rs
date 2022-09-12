@@ -107,24 +107,48 @@
             return Ok(&FRODOKEM640AES);
         } else 
 
+        if check_key_id(&FRODOKEM640AES1CCA, algorithm_id) {
+            return Ok(&FRODOKEM640AES1CCA);
+        } else 
+
         if check_key_id(&FRODOKEM640SHAKE, algorithm_id) {
             return Ok(&FRODOKEM640SHAKE);
+        } else 
+
+        if check_key_id(&FRODOKEM640SHAKE1CCA, algorithm_id) {
+            return Ok(&FRODOKEM640SHAKE1CCA);
         } else 
 
         if check_key_id(&FRODOKEM976AES, algorithm_id) {
             return Ok(&FRODOKEM976AES);
         } else 
 
+        if check_key_id(&FRODOKEM976AES1CCA, algorithm_id) {
+            return Ok(&FRODOKEM976AES1CCA);
+        } else 
+
         if check_key_id(&FRODOKEM976SHAKE, algorithm_id) {
             return Ok(&FRODOKEM976SHAKE);
+        } else 
+
+        if check_key_id(&FRODOKEM976SHAKE1CCA, algorithm_id) {
+            return Ok(&FRODOKEM976SHAKE1CCA);
         } else 
 
         if check_key_id(&FRODOKEM1344AES, algorithm_id) {
             return Ok(&FRODOKEM1344AES);
         } else 
 
+        if check_key_id(&FRODOKEM1344AES1CCA, algorithm_id) {
+            return Ok(&FRODOKEM1344AES1CCA);
+        } else 
+
         if check_key_id(&FRODOKEM1344SHAKE, algorithm_id) {
             return Ok(&FRODOKEM1344SHAKE);
+        } else 
+
+        if check_key_id(&FRODOKEM1344SHAKE1CCA, algorithm_id) {
+            return Ok(&FRODOKEM1344SHAKE1CCA);
         } else 
 
         if check_key_id(&SIKEP434, algorithm_id) {

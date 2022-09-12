@@ -269,6 +269,16 @@ pub static FRODOKEM640AES: KemAlgorithm = KemAlgorithm {
     kem: oqs::kem::Algorithm::FrodoKem640Aes,
 };
 
+const FRODOKEM640AES1CCA_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-frodokem640aes1CCA.der")),
+};
+
+/// frodokem640aes1CCA KEM
+pub static FRODOKEM640AES1CCA: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: FRODOKEM640AES1CCA_ID,
+    kem: oqs::kem::Algorithm::FrodoKem640Aes1CCA,
+};
+
 const FRODOKEM640SHAKE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
     asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-frodokem640shake.der")),
 };
@@ -277,6 +287,16 @@ const FRODOKEM640SHAKE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
 pub static FRODOKEM640SHAKE: KemAlgorithm = KemAlgorithm {
     public_key_alg_id: FRODOKEM640SHAKE_ID,
     kem: oqs::kem::Algorithm::FrodoKem640Shake,
+};
+
+const FRODOKEM640SHAKE1CCA_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-frodokem640shake1CCA.der")),
+};
+
+/// frodokem640shake1CCA KEM
+pub static FRODOKEM640SHAKE1CCA: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: FRODOKEM640SHAKE1CCA_ID,
+    kem: oqs::kem::Algorithm::FrodoKem640Shake1CCA,
 };
 
 const FRODOKEM976AES_ID: AlgorithmIdentifier = AlgorithmIdentifier {
@@ -289,6 +309,16 @@ pub static FRODOKEM976AES: KemAlgorithm = KemAlgorithm {
     kem: oqs::kem::Algorithm::FrodoKem976Aes,
 };
 
+const FRODOKEM976AES1CCA_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-frodokem976aes1CCA.der")),
+};
+
+/// frodokem976aes1CCA KEM
+pub static FRODOKEM976AES1CCA: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: FRODOKEM976AES1CCA_ID,
+    kem: oqs::kem::Algorithm::FrodoKem976Aes1CCA,
+};
+
 const FRODOKEM976SHAKE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
     asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-frodokem976shake.der")),
 };
@@ -297,6 +327,16 @@ const FRODOKEM976SHAKE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
 pub static FRODOKEM976SHAKE: KemAlgorithm = KemAlgorithm {
     public_key_alg_id: FRODOKEM976SHAKE_ID,
     kem: oqs::kem::Algorithm::FrodoKem976Shake,
+};
+
+const FRODOKEM976SHAKE1CCA_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-frodokem976shake1CCA.der")),
+};
+
+/// frodokem976shake1CCA KEM
+pub static FRODOKEM976SHAKE1CCA: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: FRODOKEM976SHAKE1CCA_ID,
+    kem: oqs::kem::Algorithm::FrodoKem976Shake1CCA,
 };
 
 const FRODOKEM1344AES_ID: AlgorithmIdentifier = AlgorithmIdentifier {
@@ -309,6 +349,16 @@ pub static FRODOKEM1344AES: KemAlgorithm = KemAlgorithm {
     kem: oqs::kem::Algorithm::FrodoKem1344Aes,
 };
 
+const FRODOKEM1344AES1CCA_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-frodokem1344aes1CCA.der")),
+};
+
+/// frodokem1344aes1CCA KEM
+pub static FRODOKEM1344AES1CCA: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: FRODOKEM1344AES1CCA_ID,
+    kem: oqs::kem::Algorithm::FrodoKem1344Aes1CCA,
+};
+
 const FRODOKEM1344SHAKE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
     asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-frodokem1344shake.der")),
 };
@@ -317,6 +367,16 @@ const FRODOKEM1344SHAKE_ID: AlgorithmIdentifier = AlgorithmIdentifier {
 pub static FRODOKEM1344SHAKE: KemAlgorithm = KemAlgorithm {
     public_key_alg_id: FRODOKEM1344SHAKE_ID,
     kem: oqs::kem::Algorithm::FrodoKem1344Shake,
+};
+
+const FRODOKEM1344SHAKE1CCA_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-frodokem1344shake1CCA.der")),
+};
+
+/// frodokem1344shake1CCA KEM
+pub static FRODOKEM1344SHAKE1CCA: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: FRODOKEM1344SHAKE1CCA_ID,
+    kem: oqs::kem::Algorithm::FrodoKem1344Shake1CCA,
 };
 
 const SIKEP434_ID: AlgorithmIdentifier = AlgorithmIdentifier {
