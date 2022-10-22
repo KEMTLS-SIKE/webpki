@@ -509,6 +509,16 @@ pub static CSIDHP512: KemAlgorithm = KemAlgorithm {
     kem: oqs::kem::Algorithm::CsidhP512,
 };
 
+const CSIDHP1024_ID: AlgorithmIdentifier = AlgorithmIdentifier {
+    asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-csidhp1024.der")),
+};
+
+/// csidhp1024 KEM
+pub static CSIDHP1024: KemAlgorithm = KemAlgorithm {
+    public_key_alg_id: CSIDHP1024_ID,
+    kem: oqs::kem::Algorithm::CsidhP1024,
+};
+
 const BIKEL1_ID: AlgorithmIdentifier = AlgorithmIdentifier {
     asn1_id_value: untrusted::Input::from(include_bytes!("../data/alg-bikel1.der")),
 };

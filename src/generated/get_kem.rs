@@ -203,6 +203,10 @@
             return Ok(&CSIDHP512);
         } else 
 
+        if check_key_id(&CSIDHP1024, algorithm_id) {
+            return Ok(&CSIDHP1024);
+        } else 
+
         if check_key_id(&BIKEL1, algorithm_id) {
             return Ok(&BIKEL1);
         } else 
